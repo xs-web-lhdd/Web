@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float案例</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0px;
+        }
+        .nav{
+            list-style: none;
+        }
+        a{text-decoration: none;}
+        .header{
+            width:100%;
+            height:100px;
+            background: lightcyan;
+            overflow: hidden;
+        }
+        .logo{
+            width: 100px;
+            height: 90px;
+            padding: 0 40px;
+            margin-top: 10px;
+            float: left;
+        }
+        .logo img{
+            width:80px;
+            height:80px;
+        }
+        .nav{
+            float:right;
+            overflow: hidden;
+            padding-right: 40px;
+        }
+        .nav li{
+            float:left;
+            padding: 0 20px;
+            line-height: 100px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .nav li a:hover{
+            color:white;
+        }
+        .contain{
+            width: 80%;
+            height:400px;
+            padding: 0 10%;
+            clear: both;
+        }
+        .main{
+            width:80%;
+            height:400px;
+            float:left;
+            background: orange;
+        }
+        .sidebar{
+            width:20%;
+            height:400px;
+            float: right;
+            background: pink;
+        }
+        .footer{
+            width:100%;
+            height:80px;
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo"><a href="#"><img src="过程相片/weixin.png"/></a></div>
+        <ul class="nav">
+            <li><a href="#">手记</a></li>
+            <li><a href="#">实战案例</a></li>
+            <li><a href="#">招纳贤士</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+    </div>
+    <div class="contain">
+        <div class="main">main</div>
+        <div class="sidebar">sidebar</div>
+
+    </div>
+    <div class="footer">footer</div>
+</body>
+</html>
