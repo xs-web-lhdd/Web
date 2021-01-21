@@ -1,0 +1,89 @@
+*{
+    padding:0;
+    margin:0;
+}
+.banner .top{
+    width:100%;
+    height: 980px;
+    margin-top: 80px;
+}
+.banner .top img{
+    width:100%;
+    height:970px;
+    
+}
+.banner .toplayer{
+    position:absolute;
+    top:80px;
+    left:0;
+    background-color: #000;
+    width:100%;
+    height: 970px;
+    opacity: 0.5;
+}
+.banner .toplayer-top{width:505px;height: 380px;position: absolute;top:500px;
+                        margin-top: -190px;z-index: 2;right:50%;margin-right:-251px;}
+.banner .toplayer-top .bd1 input{
+    padding-left: 100px;
+    width:505px;
+    height:39px;
+    border-color:gray;
+    border-width: 1px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    text-align:left;
+    padding-left: 10px;
+}
+.banner .toplayer-top .bd2 input{
+    padding-left: 100px;
+    width:505px;
+    height:39px;
+    border-color:gray;
+    border-width: 1px;
+    background-color: transparent;
+    margin-top: 25px;
+    color: #fff;
+    font-size: 20px;
+    padding-left: 10px;
+}
+.banner .toplayer-top .bd3 input{
+    padding-left: 100px;
+    width:505px;
+    height:39px;
+    border-color:gray;
+    border-width: 1px;
+    background-color: transparent;
+    margin-top: 25px;
+    color:  #fff;
+    font-size: 20px;
+    padding-left: 10px;
+}
+.banner .toplayer-top .bd4 input{
+    padding-left: 100px;
+    width:505px;
+    height:119px;px;
+    border-color:gray;
+    border-width: 1px;
+    background-color: transparent;
+    margin-top: 25px;
+    color:#fff;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-bottom: 100px;
+}
+.banner .toplayer-top button{
+    width:150px;
+    height: 43px;
+    margin-left:190px;
+    margin-top: 25px;
+    background-color: transparent;
+    font-size: 16px;
+    color:gray;
+    border-width: 1px;
+}
+.banner .toplayer-top .bd1 input:hover { border:1px solid #07cbc9; }
+.banner .toplayer-top .bd2 input:hover { border:1px solid #07cbc9; }
+.banner .toplayer-top .bd3 input:hover { border:1px solid #07cbc9; }
+.banner .toplayer-top .bd4 input:hover { border:1px solid #07cbc9; }
+.banner .toplayer-top button:hover{border:0px;background-color: #07cbc9;color:#fff;}

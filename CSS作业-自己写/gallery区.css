@@ -1,0 +1,162 @@
+*{
+    padding:0;margin:0;
+}
+.gallery{
+    width:100%;
+    height: 400px;
+}
+.gallery .gallery-wenzi1{
+    width:100%;
+    height:180px;
+    font-size:70px;
+    line-height: 200px;
+    text-align: center;
+    font-weight: 800;
+    font-family: '微软雅黑';
+}
+.gallery .gallery-wenzi2{
+    width:100%;
+    height: 150px;
+    text-align: center;
+}
+
+
+.gallery .gallery-top{
+    height: 350px;
+    line-height: 0px;/*消去间隙*/
+}
+.gallery .gallery-top .photo1{
+    float:left;
+    width:33.3%;
+    height:350px;
+}
+.gallery .gallery-top .photo2{
+    float:left;
+    width:33.3%;
+    height:350px;
+}
+.gallery .gallery-top .photo3{
+    float:left;
+    width:33.3%;
+    height:350px;
+}
+.gallery .gallery-top .photo1 img{
+    width:360px;
+    height:240px;
+    margin-left: 55%;
+    background-color: black;
+    
+}
+.gallery .gallery-top .photo1 .p-wenzi1{
+    width:39%;
+    height:64px;
+    color:#fff;
+    background-color: black;
+    line-height: 64px;
+    font-size: 20px;
+    margin-left: 55%;
+    padding-left:18%;
+    
+}
+.gallery .gallery-top .photo2 img{
+    width:360px;
+    height:240px;
+    margin-left: 22%;
+    background-color: black;
+}
+.gallery .gallery-top .photo2 .p-wenzi2{
+    width:42%;
+    height:64px;
+    color:#fff;
+    background-color: black;
+    line-height: 64px;
+    font-size: 20px;
+    margin-left: 22%;
+    padding-left:15%;
+}
+.gallery .gallery-top .photo3 img{
+    width:360px;
+    height:240px;
+    margin-left: -11%;
+    background-color: black;
+}
+.gallery .gallery-top .photo3 .p-wenzi3{
+    width:40%;
+    height:64px;
+    color:#fff;
+    background-color:black;
+    line-height: 64px;
+    font-size: 20px;
+    margin-left: -11%;
+    padding-left:17%;
+}
+
+
+ .gallery .gallery-bottom{
+     height: 390px;
+     line-height: 0px;
+ }
+.gallery .gallery-bottom .photo4{
+    float:left;
+    width:33.3%;
+    height:390px;
+}
+.gallery .gallery-bottom .photo5{
+    float:left;
+    width:33.3%;
+    height:390px;
+}
+.gallery .gallery-bottom .photo6{
+    float:left;
+    width:33.3%;
+    height:390px;
+}
+.gallery .gallery-bottom .photo4 img{
+    width:360px;
+    height:240px;
+    margin-left: 55%;
+    background-color: black;
+}
+.gallery .gallery-bottom .photo4 .p-wenzi1{
+    width:39%;
+    height:64px;
+    color:#fff;
+    background-color: black;
+    line-height: 64px;
+    font-size: 20px;
+    margin-left: 55%;
+    padding-left:18%;
+}
+.gallery .gallery-bottom .photo5 img{
+    width:360px;
+    height:240px;
+    margin-left: 22%;
+    background-color: black;
+}
+.gallery .gallery-bottom .photo5 .p-wenzi2{
+    width:46%;
+    height:64px;
+    color:#fff;
+    background-color: black;
+    line-height: 64px;
+    font-size: 20px;
+    margin-left: 22%;
+    padding-left:11%;
+}
+.gallery .gallery-bottom .photo6 img{
+    width:360px;
+    height:240px;
+    margin-left: -11%;
+    background-color: black;
+}
+.gallery .gallery-bottom .photo6 .p-wenzi3{
+    width:43%;
+    height:64px;
+    color:#fff;
+    background-color:black;
+    line-height: 64px;
+    font-size: 20px;
+    margin-left: -11%;
+    padding-left:14%;
+    
+}

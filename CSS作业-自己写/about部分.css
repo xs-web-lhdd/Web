@@ -1,0 +1,341 @@
+*{padding:0;margin:0;}
+.about .wenzi .biaoti{
+    width:100%;
+    height:180px;
+    font-size:70px;
+    line-height: 200px;
+    text-align: center;
+    font-weight: 800;
+
+}
+.about .wenzi .wenzi1{
+    width:100%;
+    height: 150px;
+    text-align: center;
+    
+}
+.container{
+    padding:10px;
+    width:100%;
+    height: 380px;
+}
+.container .left{
+    width:33%;
+    float:left;
+    background-color: transparent;
+    margin-left:10%;
+    
+}
+
+
+.container .left{width:505px;height: 380px;position: absolute;top:1280px;
+    margin-top: 0%;z-index: 2;right:50%;margin-right:7%;margin-top: 80px;}
+
+
+
+
+.container  .middle{
+    width:40%;
+    float:left;
+    text-align: center;
+    margin-top: 80px;
+}
+.container .middle img{
+    width:568px;
+    height:380px;
+    text-align: center;
+}
+.container .left .l1{
+    font-weight:800;
+    font-size:40px;
+    margin-left:0px;
+}
+.container .left .l2{
+    margin-top: 20px;
+    padding-top: 20px;
+    width:100%;
+    height:246px;
+    font-size: 20px;
+    background-color:rgba(255, 255, 255, 0.603);
+    opacity: 0.7;
+}
+.container .left .l2 p{
+    margin-left:20px;
+}
+.container .left .l2 button{
+    width:102px;
+    height:45px;
+    background-color: black;
+    color:#fff;
+    margin-top:30px;
+    margin-left:20px;
+    border:1px;
+}
+.container .left .l2 button:hover{background-color: transparent;border:1px solid black;}
+
+
+.about .container .middle{
+    position:absolute;
+    top:1280px;
+    left:33.3%;
+    background-color:#fff;
+    width:33.3%;
+    height: 380px;
+    opacity: 5;
+    text-align: center;
+}
+.container  .right{
+    width:20%;
+    float:right;
+    background:#fff;
+    margin-right:10%;
+    margin-top:-40px;
+}
+.container .right .r-top{
+    width:238px;
+    height:144px;
+    border-color: #07cbc9;
+    border-width: 1px;
+    border-style: solid;
+}
+.container .right .r-top .top-1{
+    font-size: 40px;
+    font-weight: 800;
+    margin-left:25%;   
+    margin-top: 8%;
+}
+.container .right .r-top .top-2{
+    font-size:20px;
+    margin-left:33%;   
+    margin-top: 8%;
+}
+.container .right .r-bottom{
+    width:238px;
+    height:144px;
+    border-color: #07cbc9;
+    border-width: 1px;
+    border-style: solid;
+    margin-top: 30px;
+}
+.container .right .r-bottom .bottom-1{
+    font-size: 40px;
+    font-weight: 800;
+    margin-left:35%;   
+    margin-top: 8%;
+}
+.container .right .r-bottom .bottom-2{
+    font-size: 20px;
+    margin-left:37%;   
+    margin-top: 8%;
+}
+
+
+
+.about .bottom-top{
+    width:100%;
+    height: 477.75px;
+}
+.about .bottom-top .t1{
+    float:left;
+    width:25%;
+    background-color:#07cbc9;
+    height: 477.75px;
+}
+.about .bottom-top .t1 img{
+    width:100%;
+    width:100%;
+    height: 477.75px;
+}
+.about .bottom-top .t2{
+    float:left;
+    width:25%;
+    height:477.75px;
+    background-color:#07cbc9;
+    color:#fff;
+}
+.about .bottom-top .t2 .big-bt-1{
+    width:25%;
+    height:80px;
+    font-size: 40px;
+    padding-left: 10%;
+    padding-top: 10%;
+}
+.about .bottom-top .t2 .bt-1{
+    width:100%;
+    height:60px;
+    font-size: 20px;
+    padding-left: 10%;
+}
+.about .bottom-top .t2 .nr-1{
+    width:100%;
+    height:60px;
+    font-size: 16px;
+    padding-left: 10%;
+    padding-top: 5%;
+}
+.about .bottom-top .t2 .bu1 button{
+    width: 102px;
+    height:45px;
+    margin-top: 90px;
+    margin-left:180px;
+    color:#fff;
+    background-color: black;
+    font-size:16px;
+}
+.about .bottom-top .t2 .bu1 button:hover{background-color: transparent;border:1px solid black;}
+
+.about .bottom-top .t3{
+    float:left;
+    width:25%;
+    background-color:#07cbc9;
+}
+.about .bottom-top .t3 img{
+    width:100%;
+    height:auto;
+}
+.about .bottom-top .t4{
+    float:left;
+    width:25%;
+    background-color:#07cbc9;
+    color:#fff;
+    height:477.75px;
+}
+.about .bottom-top .t4 .big-bt-2{
+    width:100%;
+    height:80px;
+    font-size: 40px;
+    padding-left: 10%;
+    padding-top: 10%;
+}
+.about .bottom-top .t4 .bt-2{
+    width:100%;
+    height:60px;
+    font-size: 20px;
+    padding-left: 10%;
+}
+.about .bottom-top .t4 .nr-2{
+    width:100%;
+    height:60px;
+    font-size: 16px;
+    padding-left: 10%;
+    padding-top: 5%;
+}
+.about .bottom-top .t4 .bu2 button{
+    width: 102px;
+    height:45px;
+    margin-top: 90px;
+    margin-left:180px;
+    color:#fff;
+    background-color: black;
+    font-size:16px;
+}
+.about .bottom-top .t4 .bu2 button:hover{background-color: transparent;border:1px solid black;}
+
+
+.about .bottom-bottom{
+    width:100%;
+    height: 477.75px;
+}
+.about .bottom-bottom .t1{
+    float:left;
+    width:25%;
+    height:477.75px;
+    background-color:#07cbc9;
+    color:#fff;
+}
+.about .bottom-bottom .t1 .big-bt-2{
+    width:100%;
+    height:80px;
+    font-size: 40px;
+    padding-left: 10%;
+    padding-top: 10%;
+}
+.about .bottom-bottom .t1 .bt-2{
+    width:100%;
+    height:60px;
+    font-size: 20px;
+    padding-left: 10%;
+}
+.about .bottom-bottom .t1 .nr-2{
+    width:100%;
+    height:60px;
+    font-size: 16px;
+    padding-left: 10%;
+    padding-top: 5%;
+}
+.about .bottom-bottom .t1 .bu2 button{
+    width: 102px;
+    height:45px;
+    margin-top: 90px;
+    margin-left:180px;
+    color:#fff;
+    background-color: black;
+    font-size:16px;
+}
+.about .bottom-bottom .t1 .bu2 button:hover{background-color: transparent;border:1px solid black;}
+.about .bottom-bottom .t2{
+    float:left;
+    width:25%;
+    background-color:#07cbc9;
+    height:477.75px;
+}
+.about .bottom-bottom .t2 img{
+    width:100%;
+
+    height:477.75px;
+}
+.about .bottom-bottom .t3{
+    float:left;
+    width:25%;
+    height:477.75px;
+    background-color:#07cbc9;
+    color:#fff;
+}
+.about .bottom-bottom .t3 .big-bt-2{
+    width:100%;
+    height:80px;
+    font-size: 40px;
+    padding-left: 10%;
+    padding-top: 10%;
+}
+.about .bottom-bottom .t3 .bt-2{
+    width:100%;
+    height:60px;
+    font-size: 20px;
+    padding-left: 10%;
+}
+.about .bottom-bottom .t3 .nr-2{
+    width:100%;
+    height:60px;
+    font-size: 16px;
+    padding-left: 10%;
+    padding-top: 5%;
+}
+.about .bottom-bottom .t3 .bu2 button{
+    width: 102px;
+    height:45px;
+    margin-top: 90px;
+    margin-left:180px;
+    color:#fff;
+    background-color: black;
+    font-size:16px;
+}
+.about .bottom-bottom .t3 .bu2 button:hover{background-color: transparent;border:1px solid black;}
+.about .bottom-bottom .t4{
+    float:left;
+    width:25%;
+    background-color:#07cbc9;
+    height:477.75px;
+}
+.about .bottom-bottom .t4 img{
+    width:100%;
+    height:477.75px;
+}
+
+
+
+
+
+
+/*下滑线用hr来写
+line-height用来消去空隙     gallery部分*/
