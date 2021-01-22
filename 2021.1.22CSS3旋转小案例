@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border: 1px black solid;
+            overflow: hidden;
+        }
+        
+        div::before {
+            content: "黑马";
+            height: 100%;
+            width: 100%;
+            display: block;
+            background-color: pink;
+            transform: rotate(180deg);
+            transform-origin: left bottom;
+            transition: all 0.4s;
+        }
+        
+        div:hover:before {
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+
+</html>
+
+</html>
