@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            perspective: 700px;
+        }
+        
+        section {
+            position: relative;
+            width: 260px;
+            height: 150px;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            animation: muma 10s linear infinite;
+            background: url(CSS作业—flex布局/作业素材/images/logo.png) no-repeat;
+        }
+        
+        section div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(CSS作业—flex布局/banner3.jpg) no-repeat;
+        }
+        
+        section div:nth-child(1) {
+            transform: translateZ(300px);
+        }
+        
+        section div:nth-child(2) {
+            transform: rotateY(60deg) translateZ(300px);
+        }
+        
+        section div:nth-child(3) {
+            transform: rotateY(120deg) translateZ(300px);
+        }
+        
+        section div:nth-child(4) {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+        
+        section div:nth-child(5) {
+            transform: rotateY(240deg) translateZ(300px);
+        }
+        
+        section div:nth-child(6) {
+            transform: rotateY(300deg) translateZ(300px);
+        }
+        
+        @keyframes muma {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+
+</html>
