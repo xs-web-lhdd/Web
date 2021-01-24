@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            width: 100%;
+            margin: 100px;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        ul li {
+            width: 200px;
+            height: 36px;
+            list-style: none;
+            perspective: 600px;
+        }
+        
+        .box {
+            width: 200px;
+            height: 36px;
+            margin: 100px auto;
+            position: relative;
+            transition: all 1s;
+            transform-style: preserve-3d;
+        }
+        
+        .box:hover {
+            transform: rotateX(90deg);
+        }
+        
+        .front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            transition: all 2s;
+            text-align: center;
+            line-height: 36px;
+            transform: translateZ(18px);
+            /* 在盒子旋转时以盒子内部中心点为参照点，若在back上写transform: translateZ(-18px) 则是以正面的中心点为参照点了 */
+            z-index: 3;
+        }
+        
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: purple;
+            transition: all 2s;
+            transform: translateY(18px) rotateX(-90deg);
+            /* 有位移和旋转的时候记得位移在前，旋转在后 */
+            text-align: center;
+            line-height: 36px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <div class="box">
+                <div class="front">设计组</div>
+                <div class="back">bbbbbbb</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">文案组</div>
+                <div class="back">bbbbbbb</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">程序组</div>
+                <div class="back">Web Java python</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">游戏开发组</div>
+                <div class="back">bbbbbbb</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">新媒体组</div>
+                <div class="back">bbbbbbb</div>
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>
