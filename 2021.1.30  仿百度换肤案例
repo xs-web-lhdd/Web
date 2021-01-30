@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            background: url(图片/1.jpg) no-repeat center top;
+            /* background-size: cover; */
+            /* 设置背景图片的大小 */
+        }
+        
+        ul {
+            width: 420px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            /* 可设置也可不设置，高度下面的li元素自动会撑起来*/
+            margin: 150px auto;
+            list-style: none;
+            overflow: hidden;
+            background-color: #fff;
+        }
+        
+        li {
+            width: 100px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        ul li img {
+            width: 100px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="baidu">
+        <li><img src="图片/1.jpg" alt=""></li>
+        <li><img src="图片/2.jpg" alt=""></li>
+        <li><img src="图片/3.jpg" alt=""></li>
+        <li><img src="图片/4.jpg" alt=""></li>
+    </ul>
+    <script>
+        // 1、获取元素
+        var imgs = document.querySelector('.baidu').querySelectorAll('img'); // 准确写法  先找到baidu 再找下面的img
+        // 2、循环注册事件
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function() {
+                // this.src 就是我们点击图片的路径   记住这种用法即可！！！
+                // console.log(this.src);
+                // 把这个路径给 body 即可
+                document.body.style.backgroundImage = 'url(' + this.src + ')'; // 小心这种写法——不要漏掉符号！
+            }
+        }
+    </script>
+</body>
+
+</html>
