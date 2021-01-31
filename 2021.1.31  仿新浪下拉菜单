@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        div {
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        ul {
+            list-style: none;
+            color: #333;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .wb,
+        .bk,
+        .yx {
+            width: 150px;
+            height: 200px;
+        }
+        
+        .wb-1 a:hover {
+            background-color: pink;
+            display: block;
+            color: white;
+        }
+        
+        .bk-1 a:hover {
+            background-color: pink;
+            display: block;
+            color: white;
+        }
+        
+        .yx-1 a:hover {
+            background-color: pink;
+            display: block;
+            color: white;
+        }
+        
+        .wb ul li {
+            width: 110px;
+            height: 48px;
+            line-height: 48px;
+            padding-left: 40px;
+            border-left: 1px solid #FECC5B;
+            border-right: 1px solid whitesmoke;
+            border-bottom: 1px solid #FECC5B;
+        }
+        
+        .yx ul li {
+            width: 110px;
+            height: 48px;
+            line-height: 48px;
+            padding-left: 40px;
+            border-left: 1px solid #FECC5B;
+            border-right: 1px solid whitesmoke;
+            border-bottom: 1px solid #FECC5B;
+        }
+        
+        .wb ul li:hover {
+            background-color: rgb(253, 223, 168);
+        }
+        
+        .bk ul li:hover {
+            background-color: rgb(253, 223, 168);
+        }
+        
+        .yx ul li:hover {
+            background-color: rgb(253, 223, 168);
+        }
+        
+        .bk ul li {
+            width: 110px;
+            height: 48px;
+            line-height: 48px;
+            padding-left: 40px;
+            border-left: 1px solid #FECC5B;
+            border-right: 1px solid whitesmoke;
+            border-bottom: 1px solid #FECC5B;
+        }
+        
+        .bk ul {
+            display: none;
+        }
+        
+        .wb ul {
+            display: none;
+        }
+        
+        .yx ul {
+            display: none;
+        }
+        
+        .wb-1,
+        .bk-1,
+        .yx-1 {
+            text-align: center;
+            height: 48px;
+            line-height: 48px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul class="wb">
+            <li class="wb-1"><a href="#">微博</a></li>
+            <ul>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">评论</a></li>
+                <li><a href="#">@我</a></li>
+            </ul>
+        </ul>
+        <ul class="bk">
+            <li class="bk-1"><a href="#">博客</a></li>
+            <ul>
+                <li><a href="#">博客评论</a></li>
+                <li><a href="#">未读消息</a></li>
+            </ul>
+        </ul>
+        <ul class="yx">
+            <li class="yx-1"><a href="#">邮箱</a></li>
+            <ul>
+                <li><a href="#">免费邮箱</a></li>
+                <li><a href="#">VIP邮箱</a></li>
+                <li><a href="#">企业邮箱</a></li>
+                <li><a href="#">新浪邮箱客户端</a></li>
+            </ul>
+        </ul>
+    </div>
+    <script>
+        // 1、获取元素
+        var nav = document.querySelector('.nav');
+        var uls = nav.children; // 得到三个ul
+        // console.log(uls);
+        for (var i = 0; i < uls.length; i++) {
+            // console.log(uls[i].children[1]);
+            uls[i].onmouseover = function() {
+                this.children[1].style.display = 'block';
+            }
+            uls[i].onmouseout = function() {
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
