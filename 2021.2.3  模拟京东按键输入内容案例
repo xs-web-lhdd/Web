@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        var search = document.querySelector('input');
+        // keyup是按完后弹起的时候起作用 当s按完后才会把光标定进去才会起作用        若是keydown按下就起作用光标就定进去，s就会写入
+        document.addEventListener('keyup', function(e) {
+            if (e.keyCode === 83) {
+                search.focus();
+            }
+        })
+    </script>
+</body>
+
+</html>
