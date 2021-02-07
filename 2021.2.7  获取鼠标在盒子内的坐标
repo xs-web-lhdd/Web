@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        // 1、我们在盒子内点击，想要得到鼠标距里盒子左右的距离
+        // 2、首先得到鼠标在页面中的坐标（e.pageX,e.pageY）
+        // 3、其次得到盒子在页面中的距离（box.offsetLeft,box.offsetTop）
+        // ​4、用鼠标距离页面的坐标减去盒子在页面中的距离，得到鼠标在盒子内的坐标
+        // 5、如果想要鼠标移动一下鼠标，就要获取最新的鼠标，使用鼠标移动事件 mousemove
+        var box = document.querySelector('.box');
+        box.addEventListener('mousemove', function(e) {
+            // console.log(e.pageX);
+            // console.log(e.pageY);
+            // console.log(box.offsetLeft);
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            this.innerHTML = 'X坐标是' + x + 'Y坐标是' + y;
+        })
+    </script>
+</body>
+
+</html>
