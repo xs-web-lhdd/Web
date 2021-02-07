@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .head {
+            width: 200px;
+            height: 50px;
+            margin: 0 auto;
+        }
+        
+        #a1 {
+            color: black;
+            font-size: 20px;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            width: 100%;
+            height: 800px;
+        }
+        
+        .login {
+            width: 400px;
+            height: 200px;
+            /* margin: 150px auto; */
+            background-color: #fff;
+            z-index: 9999;
+            /* position: relative; */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        
+        .login-dz {
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+        }
+        
+        .login-error {
+            width: 35px;
+            height: 35px;
+            text-align: center;
+            line-height: 35px;
+            font-size: 10px;
+            font-weight: 500;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            top: -17px;
+            right: -17px;
+        }
+        
+        #a2 {
+            color: black;
+        }
+        
+        .login-input {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        
+        .username,
+        .password {
+            display: flex;
+        }
+        
+        #l-1,
+        #l-2 {
+            width: 100px;
+            height: 30px;
+            text-align: end;
+            line-height: 30px;
+        }
+        
+        input {
+            width: 260px;
+            height: 25px;
+        }
+        
+        .login-table {
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border: 2px solid rgb(238, 229, 229);
+            background-color: #fff;
+            position: absolute;
+            top: 70%;
+            left: 25%;
+        }
+        
+        #a3 {
+            color: black;
+        }
+        
+        .bg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background: rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <a href="javascript:;" id="a1">点击，弹出登录框</a>
+    </div>
+    <div class="login">
+        <!-- 大字 -->
+        <div class="login-dz" id="title">登录会员</div>
+        <div class="login-error"><a href="javascript:;" id="a2">关闭</a></div>
+        <!-- 表单 -->
+        <div class="login-input">
+            <div class=username>
+                <div id="l-1">用户名：</div>
+                <input type="text" placeholder="请输入用户名">
+            </div>
+            <div class=password>
+                <div id="l-2">登录密码：</div>
+                <input type="text" placeholder="请输入登录密码">
+            </div>
+        </div>
+        <!-- 下面单表格 -->
+        <div class="login-table">
+            <a href="javascript:;" id="a3">登录会员</a>
+        </div>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="bg" id="bg"></div>
+    <script>
+        // 1、获取元素
+        var login = document.querySelector('.login');
+        var mask = document.querySelector('.bg');
+        var link = document.querySelector('#a1');
+        var closeBtn = document.querySelector('#a2');
+        var title = document.querySelector('#title');
+        // 2、点击弹出层这个链接 link  让mask和login显示出来
+        link.addEventListener('click', function() {
+            mask.style.display = 'block';
+            login.style.display = 'block';
+        });
+        // 3、点击 closeBtn 就隐藏mask和login
+        closeBtn.addEventListener('click', function() {
+            mask.style.display = 'none';
+            login.style.display = 'none';
+        });
+        // 4、开始拖拽
+        // (1) 当我们鼠标按下，就获得鼠标在盒子内的坐标
+        title.addEventListener('mousedown', function(e) {
+            var x = e.pageX - login.offsetLeft;
+            var y = e.pageY - login.offsetTop;
+            this.style.cursor = 'pointer';
+            // (2) 鼠标移动的时候，把鼠标在页面中的坐标，减去 鼠标在盒子内的坐标就是模态框的left和top值
+            document.addEventListener('mousemove', move)
+
+            function move(e) {
+                login.style.left = e.pageX - x + 'px';
+                login.style.top = e.pageY - y + 'px';
+            }
+            // (3) 鼠标弹起，就让鼠标移动事件移除
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', move)
+            })
+
+        });
+    </script>
+</body>
+
+</html>
