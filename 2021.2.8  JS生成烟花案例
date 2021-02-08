@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            display: block;
+        }
+        
+        .page {
+            width: 300px;
+            height: 669px;
+            border: 1px solid red;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        #page1 {
+            display: block;
+            width: 300px;
+            height: 620px;
+            background: url(./图片/年1.png) no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        
+        #page1 .page1-lantern {
+            width: 70px;
+            height: 61px;
+            background: url(./图片/灯笼.png);
+            background-size: cover;
+            margin: 0 auto;
+        }
+        
+        #page1 .page1-frame {
+            width: 200px;
+            height: 62px;
+            margin: 20px auto;
+            background: url(./图片/1612754905060.png);
+            background-size: cover;
+            line-height: 62px;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+        #page1 .page1-text {
+            width: 100px;
+            height: 301px;
+            margin: 0 auto;
+            background: url(./图片/1612754913873.png);
+            background-size: cover;
+        }
+        
+        #page1 .page1-fence {
+            width: 300px;
+            height: 125px;
+            background: url(./图片/1612754903799.png) no-repeat;
+            background-size: 100%;
+            position: absolute;
+            bottom: -50px;
+        }
+        
+        #page1 .page1-p1 {
+            position: absolute;
+            left: 35%;
+            bottom: 20px;
+            width: 78px;
+            height: 140px;
+            background: url(./图片/1612754907178.png);
+            background-size: cover;
+            /* z-index: 999; */
+            transform-origin: center bottom;
+            /* 旋转点设置 */
+            animation: prun 2s ease-in-out infinite -1s;
+            /* 调用动画 */
+        }
+        
+        #page1 .page1-p2 {
+            width: 116px;
+            height: 150px;
+            background: url(./图片/1612754911124.png);
+            background-size: cover;
+            position: absolute;
+            bottom: 15px;
+            left: 10px;
+            transform-origin: center bottom;
+            animation: prun 2s ease-in-out infinite -1.5s;
+        }
+        
+        #page1 .page1-p3 {
+            width: 120px;
+            height: 120px;
+            background: url(./图片/1612754912300.png);
+            background-size: cover;
+            position: absolute;
+            right: 5px;
+            bottom: 30px;
+            transform-origin: center bottom;
+            animation: prun 2s ease-in-out infinite;
+        }
+        
+        @keyframes prun {
+            0% {
+                transform: rotate(-2deg);
+            }
+            50% {
+                transform: rotate(2deg);
+            }
+            100% {
+                transform: rotate(-2deg);
+            }
+        }
+        
+        #music {
+            width: 30px;
+            height: 30px;
+            background: url(./图片/1612754901417.png);
+            background-size: cover;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+        
+        .run {
+            animation: rotate 2s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        #page2 {
+            display: none;
+            width: 300px;
+            height: 669px;
+            background-color: #b82a1e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div id="page1">
+            <div class="page1-lantern"></div>
+            <div class="page1-frame">
+                12.31 23:59:5<span>5</span>
+                <!-- <img src="./图片/1612754905060.png" alt="" class="frame"> -->
+            </div>
+            <div class="page1-text"></div>
+            <div class="page1-fence">
+                <div class="page1-p1"></div>
+                <div class="page1-p2"></div>
+                <div class="page1-p3"></div>
+            </div>
+        </div>
+        <div id="music">
+            <audio src="好运来.m4a" loop></audio>
+        </div>
+        <div id="firesound">
+            <audio src="胜利烟花.m4a" loop></audio>
+            <audio src="胜利烟花.m4a" loop></audio>
+            <audio src="胜利烟花.m4a" loop></audio>
+            <!-- 多添加几遍，烟花比较多 ，这样声音能跟上烟花出现 -->
+        </div>
+        <div id="page2">
+            <canvas></canvas>
+        </div>
+    </div>
+    <script>
+
+        // 场景一布局
+        musicBg();
+
+        function musicBg() {
+            let music = document.querySelector('#music');
+            let musicAudio = document.querySelector('audio');
+            let fireSoundAudio = document.querySelectorAll('#firesound audio');
+            musicAudio.volume = '0.2';
+            music.addEventListener('click', function() { // 通过点击事件来控制音乐
+                if (musicAudio.paused) {
+                    this.className = 'run'; // 添加音乐图标旋转动画
+                    musicAudio.play(); // 播放音乐
+                    for (let i = 0; i < fireSoundAudio.length; i++) {
+                        fireSoundAudio[i].play();
+                        fireSoundAudio[i].muted = true; // 先静音
+                        fireSoundAudio[i].currentTime = i; // 时间执行时长  产生错落感
+                    }
+                } else {
+                    this.className = ''; // 停止图标旋转动画
+                    musicAudio.pause(); // 停止音乐
+                    for (let i = 0; i < fireSoundAudio.length; i++) {
+                        fireSoundAudio[i].pause(); // 停止烟花爆炸音乐 切记：pause() 而不是paused()  !!!!!!!!!!!!
+                    }
+                }
+            });
+        }
+        countDown();
+
+        function countDown() {
+            let countNumber = document.querySelector('.page1-frame span');
+            let page1 = document.querySelector('#page1');
+            let page2 = document.querySelector('#page2');
+            var timer = setInterval(function() {
+                    if (countNumber.innerHTML == 9) {
+                        clearInterval(timer);
+                        page1.style.display = 'none';
+                        page2.style.display = 'block';
+                        initFires(); // 切换页面后调用发射烟花函数
+                    } else {
+                        countNumber.innerHTML++;
+                        // ++会自动进行类型转换
+                        page1.style.display = 'block';
+                        page2.style.display = 'none';
+                    }
+                }, 1000) // 安排一个定时器，进行倒计时效果
+        }
+
+        // 场景二（随机发射烟花）布局
+
+        function initFires() {
+            let page2 = document.querySelector('#page2');
+            let canvas = document.querySelector('canvas');
+            let ctx = canvas.getContext('2d');
+            let fireSoundAudio = document.querySelectorAll('#firesound audio');
+
+            // 出现小小bug 稍后处理
+            // let width = page2.innerWidth;
+            // let height = page2.innerHeight;
+            // canvas.width = width;
+            // canvas.height = height;
+            // 出现bug 被迫先定死！！！！！！！！！！！！
+            canvas.width = '300';
+            canvas.height = '669';
+
+            let balls = [];
+
+            let fires = []; //添加烟花爆炸    用来装载烟花爆炸元素
+
+            let timer = null;
+            let count = 0;
+            let ballAll = 100; // 设置多少就有多少小球
+
+            timer = setInterval(function() {
+                if (count == ballAll) {
+                    clearInterval(timer);
+                    count = 0;
+                    timer = null;
+                } else {
+                    count++;
+                    // -----------------------------------------------
+                    // 小球来了！！！
+                    balls.push(
+                        new Ball({
+                            r: 3,
+                            x: Math.random() * (300 / 3) + 300 / 3,
+                            // x: Math.random() * width / 3 + width / 3,
+                            // y: height,                   高宽定死后不能用代数了，只能输入相应值了
+                            y: 669,
+                            vx: Math.random() * 2 - 1,
+                            vy: -Math.random() * 2 - 9.5, // 改变小球高度
+                            end() {
+                                if (this.vy > 1) {
+                                    balls.splice(balls.indexOf(this), 1);
+                                    let size = Math.random() * 10; //控制整个烟花的尺寸大小
+                                    // 让烟花由60个点组成
+                                    for (let i = 0; i < 60; i++) {
+                                        let power = Math.random() * 10; // 向四周扩散的时候是随机扩散的，形成错落感  控制烟花内小球的速度偏差
+                                        let vx = Math.cos(i * 6 * Math.PI / 180) * power;
+                                        let vy = Math.sin(i * 6 * Math.PI / 180) * power;
+                                        // 爆炸点控制
+                                        fires.push(
+                                            new Fire({
+                                                r: 3,
+                                                x: this.x,
+                                                y: this.y,
+                                                vx: vx,
+                                                vy: vy,
+                                                g: 0.05,
+                                                end() {
+                                                    if (this.life < 10) {
+                                                        fires.splice(fires.indexOf(this), 1);
+                                                    }
+                                                }
+                                            })
+                                        )
+                                    }
+                                }
+                            }
+                        })
+                    );
+                    // -----------------------------------------------
+                }
+            }, 500);
+
+            loop();
+
+            function loop() {
+
+                // 去除甩尾！！！
+                if (balls.length) {
+                    for (let i = 0; i < fireSoundAudio.length; i++) { //有小球 放音乐！！！
+                        fireSoundAudio[i].muted = false;
+                    }
+                    ctx.fillStyle = 'rgba(184,42,30,0.1)';
+                    ctx.fillRect(0, 0, 300, 669);
+                } else {
+                    for (let i = 0; i < fireSoundAudio.length; i++) { //无小球 关音乐！！！
+                        fireSoundAudio[i].muted = false;
+                    }
+                    ctx.fillStyle = 'rgb(184,42,30)';
+                    ctx.fillRect(0, 0, 300, 669);
+                }
+
+                // ctx.fillStyle = 'rgba(184,42,30,0.1)';
+                // ctx.fillRect(0, 0, 300, 669);
+
+                // 对烟花进行渲染
+                for (let i = 0; i < balls.length; i++) {
+                    balls[i].update(); // 每次烟花都调用函数 以更新
+                    balls[i].render();
+                }
+
+                for (let i = 0; i < fires.length; i++) {
+                    fires[i].update();
+                    fires[i].render();
+                }
+
+
+
+
+                requestAnimationFrame(loop);
+            }
+            class Ball {
+                constructor(options) {
+                    this.settings = Object.assign({
+                        color: 'yellow',
+                        r: 5,
+                        g: 0.1,
+                        end() {}
+                    }, options);
+                    for (let attr in this.settings) {
+                        this[attr] = this.settings[attr];
+                    }
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.vy += this.g;
+                }
+                render() {
+                    ctx.beginPath();
+                    ctx.fillStyle = this.color;
+                    ctx.arc(this.x, this.y, this.r, 0, 360 * Math.PI / 180);
+                    ctx.closePath();
+                    ctx.fill();
+                    this.end()
+                }
+            }
+            class Fire {
+                constructor(options) {
+                    this.settings = Object.assign({
+                        color: 'yellow',
+                        r: 5,
+                        g: 0.1,
+                        fs: 0.95, // 摩擦系数 小于1的数
+                        life: 100, //给个生命值来用来检测何时爆炸
+                        end() {}
+                    }, options);
+                    for (let attr in this.settings) {
+                        this[attr] = this.settings[attr];
+                    }
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.vy += this.g;
+                    this.vx *= this.fs;
+                    this.vy *= this.fs;
+                    if (this.life > 0 && this.life < 300) {
+                        this.life--;
+                    }
+                }
+                render() {
+                    ctx.beginPath();
+                    ctx.fillStyle = this.color;
+                    ctx.arc(this.x, this.y, this.r * Math.min(this.life, 100) / 100, 0, 360 * Math.PI / 180);
+                    ctx.closePath();
+                    ctx.fill();
+                    this.end()
+                }
+            }
+        }
+   
+    </script>
+</body>
+
+</html>
