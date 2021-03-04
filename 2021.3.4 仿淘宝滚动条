@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .w{
+            width: 60%;
+        }
+        .header{
+            height: 200px;
+            background-color: blue;
+        }
+        .banner{
+            height: 300px;
+            background-color: burlywood;
+        }
+        .main{
+            height: 600px;
+            background-color: cyan;
+        }
+        .slider-bar{
+            background-color:pink;
+            position: absolute;
+            top: 300px;
+            left: 1006px;
+            height: 100px;
+            width: 40px;
+        }
+        .goBack{
+            display: none;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+      <div class="slider-bar">
+          <span class="goBack">返回顶部</span>
+      </div> 
+      <div class="header w">头部区域</div>
+      <div class="banner w">banner区域</div>
+      <div class="main w">主体部分</div> 
+      <script>
+        //   1、获取元素
+        var sliderbar=document.querySelector('.slider-bar');
+        var banner=document.querySelector('.banner');
+        // banner.offsetTop  就是被卷进去头部的大小 一定要写到滚动的外面
+        var bannerTop=banner.offsetTop;
+        // 当我们侧边栏固定定位之后应该变化的数值
+        var sliderbarTop=sliderbar.offsetTop-bannerTop;
+        // 获取main主体元素
+        var main=document.querySelector('.main');
+        var goBack=document.querySelector('.goBack');
+        var mainTop=main.offsetTop;
+        // 2、页面滚动事件scroll
+        // console.log(10000);
+        document.addEventListener('scroll',function(){
+            // console.log(11);
+            // 3、当我们页面被卷进去到banner时就改为固定定位
+            if(window.pageYOffset>=bannerTop){
+                sliderbar.style.position='fixed';
+                sliderbar.style.top=sliderbarTop+'px';
+            }
+            else{
+                sliderbar.style.position='absolute';
+                sliderbar.style.top='300px';
+            }
+            // 4、当页面滚动到mian盒子 就显示 goBack模块
+            if(window.pageYOffset>=mainTop){
+                goBack.style.display='block';
+            }
+            else{
+                goBack.style.display='none';
+            }
+        })
+      </script>
+</body>
+</html>
+<!-- 需要注意的是页面被卷进去的头部有兼容性问题，因此被卷进去的头部通常有如下几种写法：
+
+​		1、声明了DTD，使用document.documentElement.scrollTop
+
+​		2、未声明了DTD，使用document.body.scrollTop
+
+​		3、新方法window.pageYOffset和window.pageXOffset，IE9支持 
+function getScroll(){
+    return{
+        left:window.pageXOffset || document.docuemntElement.scrollLeft || document.body.scrollLeft || 0,
+        top:window.pageYOffset || document.docuemntElement.scrollTop || document.body.scrollTop || 0
+    };
+}
+使用的时候  getScroll().left-->
