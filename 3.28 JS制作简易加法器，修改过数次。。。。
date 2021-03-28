@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #eee;
+        } 
+        .calculator{
+            /* width: 800px;
+            height: 300px; */
+            margin: 100px 0 0 150px;
+        }       
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <p>
+            <input type="text" class="formerInput" value="1">
+            <span class="sign">+</span>
+            <input type="text" class="laterInput" value="1">
+            <span>=</span>
+            <span class="resultOutput">2</span>
+        </p>
+        <p>
+            <!-- <input type="button" value="+" onclick="addHandler();">
+            <input type="button" value="-" onclick="jianHandler();">
+            <input type="button" value="×" onclick="chengHandler();">
+            <input type="button" value="÷" onclick="chuHandler();"> -->
+            <input type="button" value="+" class="btn" title="add">
+            <input type="button" value="-" class="btn" title="jian">
+            <input type="button" value="×" class="btn" title="cheng">
+            <input type="button" value="÷" class="btn" title="chu">
+        </p>
+    </div>
+
+    <script>
+        // // 获取元素
+        // var calculator = document.querySelector('.calculator');
+        // var formerInput = calculator.querySelector('.formerInput');
+        // var laterInput = calculator.querySelector('.laterInput');
+        // var sign = calculator.querySelector('.sign');
+        // var resultOutput = calculator.querySelector('.resultOutput');
+
+        // // 加法函数
+        // function addHandler(){
+        //     sign.innerHTML = '+';
+        //     resultOutput.innerHTML = +formerInput.value + +laterInput.value;
+        //     // 通过在前面加+将字符串强制转化为数字
+        // }
+
+        //  // 减法函数
+        //  function jianHandler(){
+        //     sign.innerHTML = '-';
+        //     resultOutput.innerHTML = formerInput.value - laterInput.value;
+        //     // 两个字符串相减相当于两个数字相减，故可以去掉前面的加号
+        //     // 上面加号不可以是因为JS中字符串可以拼接的（用加号），当不能相减
+        // }
+
+        // // 乘法函数
+        // function chengHandler(){
+        //     sign.innerHTML = '×';
+        //     resultOutput.innerHTML = formerInput.value * laterInput.value;
+        // }
+
+        // // 除法函数
+        // function chuHandler(){
+        //     sign.innerHTML = '÷';
+        //     resultOutput.innerHTML = formerInput.value / laterInput.value;
+        // }
+
+        // 第一次改进  结构和行为分离
+        // var calculator = document.querySelector('.calculator');
+        // var formerInput = calculator.querySelector('.formerInput');
+        // var laterInput = calculator.querySelector('.laterInput');
+        // var sign = calculator.querySelector('.sign');
+        // var resultOutput = calculator.querySelector('.resultOutput');
+        // var btns = calculator.querySelectorAll('.btn');
+
+        // // 绑定事件
+        // // +
+        // btns[0].onclick = addHandler;
+        // // 切记这里传的是函数名  后面不能加() 
+        // // -
+        // btns[1].onclick = jianHandler;
+        // // ×
+        // btns[2].onclick = chengHandler;
+        // // ÷
+        // btns[3].onclick = chuHandler;
+
+        // // 加法函数
+        // function addHandler(){
+        //     sign.innerHTML = '+';
+        //     resultOutput.innerHTML = +formerInput.value + +laterInput.value;
+        //     // 通过在前面加+将字符串强制转化为数字
+        // }
+
+        //  // 减法函数
+        //  function jianHandler(){
+        //     sign.innerHTML = '-';
+        //     resultOutput.innerHTML = formerInput.value - laterInput.value;
+        //     // 两个字符串相减相当于两个数字相减，故可以去掉前面的加号
+        //     // 上面加号不可以是因为JS中字符串可以拼接的（用加号），当不能相减
+        // }
+
+        // // 乘法函数
+        // function chengHandler(){
+        //     sign.innerHTML = '×';
+        //     resultOutput.innerHTML = formerInput.value * laterInput.value;
+        // }
+
+        // // 除法函数
+        // function chuHandler(){
+        //     sign.innerHTML = '÷';
+        //     resultOutput.innerHTML = formerInput.value / laterInput.value;
+        // }
+
+        // 第二次改写  循环
+    //     var calculator = document.querySelector('.calculator');
+    //     var formerInput = calculator.querySelector('.formerInput');
+    //     var laterInput = calculator.querySelector('.laterInput');
+    //     var sign = calculator.querySelector('.sign');
+    //     var resultOutput = calculator.querySelector('.resultOutput');
+    //     var btns = calculator.querySelectorAll('.btn');
+
+    //     // 绑定事件
+    //     each(btns,function(index,elem){
+    //         elem.onclick = function(){
+    //             switch(this.title){
+    //                 case 'add': 
+    //                     addHandler();
+    //                     break;
+    //                  case 'jian': 
+    //                     jianHandler();
+    //                     break;
+    //                 case 'cheng': 
+    //                     chengHandler();
+    //                     break;
+    //                 case 'chu': 
+    //                     chuHandler();
+    //                     break;
+    //             } 
+    //         }
+    //     })
+
+    //     // 遍历
+    //     function each(array,fn){
+    //         for(var i = 0;i < array.length; i++){
+    //             fn(i,array[i]);
+    //         }
+    //     }
+
+    // // 更新符号
+    //     function updateSign(symbol){
+    //         sign.innerHTML = symbol;
+    //     }
+    // // 加法
+    //     function add(num1,num2){
+    //         return +num1 + +num2;
+    //     }
+    // // 减法
+    //     function jian(num1,num2){
+    //         return num1-num2;
+    //     }
+    // // 乘法
+    //     function cheng(num1,num2){
+    //         return num1*num2;
+    //     }
+    // // 除法
+    //     function chu(num1,num2){
+    //         return num1/num2;
+    //     }
+
+    // // 输出
+    //     function outputResult(result){
+    //         resultOutput.innerHTML = result;
+    //     }
+    //     // 加法函数
+    //     function addHandler(){
+    //         updateSign('+');
+    //         outputResult(add(formerInput.value,laterInput.value));
+    //         // 通过在前面加+将字符串强制转化为数字
+    //     }
+
+    //      // 减法函数
+    //      function jianHandler(){
+    //         updateSign('-');
+    //         outputResult(jian(formerInput.value,laterInput.value));
+    //         // 两个字符串相减相当于两个数字相减，故可以去掉前面的加号
+    //         // 上面加号不可以是因为JS中字符串可以拼接的（用加号），当不能相减
+    //     }
+
+    //     // 乘法函数
+    //     function chengHandler(){
+    //         updateSign('×');
+    //         outputResult(cheng(formerInput.value,laterInput.value));
+    //     }
+
+    //     // 除法函数
+    //     function chuHandler(){
+    //         updateSign('÷');
+    //         outputResult(chu(formerInput.value,laterInput.value));
+    //     }
+    // 
+
+    // // 第四次修改   管理代码（找到组织）
+    //     var wrapElem = document.querySelector('.calculator');
+    //     var calculatorElem = {
+    //         formerInput : wrapElem.querySelector('.formerInput'),
+    //         laterInput : wrapElem.querySelector('.laterInput'),
+    //         sign : wrapElem.querySelector('.sign'),
+    //         resultOutput : wrapElem.querySelector('.resultOutput'),
+    //         btns : wrapElem.querySelectorAll('.btn')
+    //     };
+    //     // console.log(calculatorElem);
+
+    //     // 绑定事件
+    //     each(calculatorElem.btns,function(index,elem){
+    //         elem.onclick = function(){
+    //             switch(this.title){
+    //                 case 'add': 
+    //                     addHandler();
+    //                     break;
+    //                  case 'jian': 
+    //                     jianHandler();
+    //                     break;
+    //                 case 'cheng': 
+    //                     chengHandler();
+    //                     break;
+    //                 case 'chu': 
+    //                     chuHandler();
+    //                     break;
+    //             } 
+    //         }
+    //     })
+
+    //     // 遍历
+    //     function each(array,fn){
+    //         for(var i = 0;i < array.length; i++){
+    //             fn(i,array[i]);
+    //         }
+    //     }
+
+    // // 更新符号
+    //     function updateSign(symbol){
+    //         calculatorElem.sign.innerHTML = symbol;
+    //     }
+
+    // // 函数对象
+    // var operation = {
+    //     add:function(num1,num2){
+    //         return +num1 + +num2;
+    //     },
+
+    //     jian:function(num1,num2){
+    //         return +num1 + +num2;
+    //     },
+
+    //     cheng:function(num1,num2){
+    //         return num1*num2;
+    //     },
+
+    //     chu:function(num1,num2){
+    //         return num1/num2;
+    //     },
+    // }
+
+    // // 输出
+    //     function outputResult(result){
+    //         calculatorElem.resultOutput.innerHTML = result;
+    //     }
+    //     // 加法函数
+    //     function addHandler(){
+    //         updateSign('+');
+    //         outputResult(operation.add(calculatorElem.formerInput.value,calculatorElem.laterInput.value));
+    //         // 通过在前面加+将字符串强制转化为数字
+    //     }
+
+    //      // 减法函数
+    //      function jianHandler(){
+    //         updateSign('-');
+    //         outputResult(operation.jian(calculatorElem.formerInput.value,calculatorElem.laterInput.value));
+    //         // 两个字符串相减相当于两个数字相减，故可以去掉前面的加号
+    //         // 上面加号不可以是因为JS中字符串可以拼接的（用加号），当不能相减
+    //     }
+
+    //     // 乘法函数
+    //     function chengHandler(){
+    //         updateSign('×');
+    //         outputResult(operation.cheng(calculatorElem.formerInput.value,calculatorElem.laterInput.value));
+    //     }
+
+    //     // 除法函数
+    //     function chuHandler(){
+    //         updateSign('÷');
+    //         outputResult(operation.chu(calculatorElem.formerInput.value,calculatorElem.laterInput.value));
+    //     }
+
+
+    // 第五次修改   开放与封闭原则
+        var wrapElem = document.querySelector('.calculator');
+        var calculatorElem = {
+            formerInput : wrapElem.querySelector('.formerInput'),
+            laterInput : wrapElem.querySelector('.laterInput'),
+            sign : wrapElem.querySelector('.sign'),
+            resultOutput : wrapElem.querySelector('.resultOutput'),
+            btns : wrapElem.querySelectorAll('.btn')
+        };
+        // console.log(calculatorElem);
+
+        // 绑定事件
+        each(calculatorElem.btns,function(index,elem){
+            elem.onclick = function(){
+                updateSign(this.value);
+                operate(this.title,calculatorElem.formerInput,calculatorElem.laterInput);
+                outputResult(operation.chu(calculatorElem.formerInput.value,calculatorElem.laterInput.value));
+            }
+        })
+
+        // 遍历
+        function each(array,fn){
+            for(var i = 0;i < array.length; i++){
+                fn(i,array[i]);
+            }
+        }
+
+    // 更新符号
+        function updateSign(symbol){
+            calculatorElem.sign.innerHTML = symbol;
+        }
+
+    // 运算
+        function operate(name,num1,num2){
+            if(!operation[name]) throw new Error('不存在+ name +的运算方法！');
+            return operation[name](num1,num2);
+        }
+
+    // 函数对象
+    var operation = {
+        add:function(num1,num2){
+            return +num1 + +num2;
+        },
+
+        jian:function(num1,num2){
+            return +num1 + +num2;
+        },
+
+        cheng:function(num1,num2){
+            return num1*num2;
+        },
+
+        chu:function(num1,num2){
+            return num1/num2;
+        },
+    }
+
+    // 输出
+        function outputResult(result){
+            calculatorElem.resultOutput.innerHTML = result;
+        }
+    </script>
+</body>
+</html>
