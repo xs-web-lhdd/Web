@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #Total{
+            width: 650px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+        }
+        #total{
+            background-color: pink;
+            color: #fff;
+            border-radius: 15px 15px 0 0;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            width: 650px;
+            height: 30px;
+            line-height: 30px;
+        }
+        .item{
+            width: 650px;
+            height: 25px;
+            margin-top: 10px;
+            padding-left: 10px;
+        }
+        input{
+            width: 200px;
+            height: 20px;
+            padding-left: 5px;
+        }
+        hr{
+            border: none;
+            height: 2px;
+            width: 620px;
+            background-color: #eee;
+            margin: 0 auto;
+        }
+        .item_{
+            display: block;
+            width: 400px;
+            height: 20px;
+            /* background-color: pink; */
+            margin-top: 10px;
+            margin-left: 10px;
+            font-size: 12px;
+            line-height: 20px;
+        }
+        #end{
+            width: 648px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        #end input{
+            width: 10px;
+            height: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="Total">
+        <div id="total">---  账户信息  ---</div>
+        <div class="item">
+            <span class="important">*</span>
+            <label for="userAccount">用户名：</label>
+            <input type="text" id="userAccount" placeholder="用户设置成功后不可修改">
+        </div>
+        <p class="item_"></p>
+        <br>
+        <hr />
+
+        <div class="item">
+            <span class="important">*</span>
+            <label for="userPass">登录密码：</label>
+            <input type="password" id="userPass" placeholder="6-20位字母、数字或符号">
+        </div>
+        <p class="item_"></p>
+        <br>
+        <hr />
+
+
+        <div class="item">
+            <span class="important">*</span>
+            <label for="userPass_">确认密码：</label>
+            <input type="password" id="userPass_" >
+        </div>
+        <p class="item_"></p>
+        <br>
+        <hr />
+
+
+        <div class="item">
+            <span class="important">*</span>
+            <label for="userName">姓名：</label>
+            <input type="text" id="userName" placeholder="请输入姓名，中文且最多五位">
+        </div>
+        <p class="item_"></p>
+        <br>
+        <hr />
+
+
+
+        <div class="item">
+            <span class="important">*</span>
+            <label for="information">身份证号：</label>
+            <input type="text" id="information" placeholder="请输入身份证号">
+        </div>
+        <p class="item_"></p>
+        <br>
+        <hr />
+
+
+        <div class="item">
+            <span class="important">*</span>
+            <label for="email">邮箱：</label>
+            <input type="email" id="email" placeholder="请输入正确的邮箱格式">
+        </div>
+        <p class="item_"></p>
+        <br>
+        <hr />
+        
+        
+        <div class="item">
+            <span class="important">*</span>
+            <label for="telphone">电话：</label>
+            <input type="tel" id="telphone" placeholder="请输入您的电话号码">
+        </div>
+        <p class="item_"></p>
+        <br>
+        <hr />
+
+        <div id="end">
+            <input type="checkbox" id="choose">
+            <label for="choose">我已阅读且同意遵守规定</label>
+            <button id="handup">确认提交</button>
+        </div>
+
+    </div>
+
+
+    <script>
+        var userAccount = document.getElementById('userAccount');
+        var userPass = document.getElementById('userPass');
+        var userPass_ = document.getElementById('userPass_');
+        var userName = document.getElementById('userName');
+        var information = document.getElementById('information');
+        var email = document.getElementById('email');
+        var telphone = document.getElementById('telphone');
+        var handup = document.getElementById('handup');
+        var choose = document.getElementById('choose');
+        // 当鼠标 离开用户名输入框，产生验证
+
+// 验证是否每项都正确
+        var test1 = 'false'; // 用户名称格式正确
+        var test2 = 'false'; // 密码正确
+        var test3 = 'false'; // 二次验证密码正确
+        var test4 = 'flase'; // 验证姓名正确
+        var test5 = 'false'; // 验证身份证正确
+        var test6 = 'false'; // 验证邮箱正确
+        var test7 = 'false'; // 验证手机号正确
+
+        var items = document.querySelectorAll('.item_');
+
+        var reg = /正则/;
+// 验证用户名：
+        userAccount.onblur = function(){ // 验证用户名
+            var reg = /^\w{6,18}$/;
+            if(this.value == ''){
+                items[0].innerHTML = '用户名不能为空';
+                items[0].style.color = 'red';
+            }else{
+                if(!reg.exec(userAccount.value)){
+                    items[0].innerHTML = '请输入6-18位数字、字母或下划线！';
+                    items[0].style.color = 'red';
+                    test1 = 'false'; // 只要出现红色就提交不了，以达到本来输对后提交后再改错信息的验证
+                }else{
+                    items[0].innerHTML = '输入用户名正确！'
+                    items[0].style.color = 'green';
+                    test1 = 'true';
+                }
+            }
+        }
+// 验证密码：
+        userPass.onfocus = function(){
+            items[1].innerHTML = '请输入6-18位数字、字母或下划线';
+            items[1].style.color = 'green';
+        }
+        userPass.onblur = function(){ // 验证密码
+            var reg = /^\w{6,18}$/;
+            if(this.value == ''){
+                items[1].innerHTML = '密码不能为空';
+                items[1].style.color = 'red';
+            }else{
+                if(!reg.exec(userPass.value)){
+                    items[1].innerHTML = '请输入6-18位数字、字母或下划线！';
+                    items[1].style.color = 'red';
+                    test2 = 'false';
+                }else{
+                    items[1].innerHTML = '输入密码正确！'
+                    items[1].style.color = 'green';
+                    test2 = 'true';
+                }
+            }
+        }
+        
+
+
+// 验证密码是否一致：
+        userPass_.onfocus = function(){
+            items[2].innerHTML = '请确认两次密码一致！';
+            items[2].style.color = 'green';
+        }
+        userPass_.onblur = function(){ // 验证密码是否一致
+            var reg = /^\w{6,18}$/;
+            if(this.value == ''){
+                items[2].innerHTML = '确认密码不能为空！';
+                items[2].style.color = 'red';
+            }else{
+                if(userPass_.value != userPass.value){
+                    items[2].innerHTML = '两次密码不一致！';
+                    items[2].style.color = 'red';
+                    test3 = 'false';
+                }else{
+                    items[2].innerHTML = '确认密码正确！'
+                    items[2].style.color = 'green';
+                    test3 = 'true';
+                }
+            }
+        }
+        
+// 验证姓名：
+        userName.onfocus = function(){
+            items[3].innerHTML = '请输入中文姓名';
+            items[3].style.color = 'green';
+        }
+        userName.onblur = function(){ // 验证中文姓名
+            var reg = /^[\u4e00-\u9fa5]{2,5}$/;
+            if(this.value == ''){
+                items[3].innerHTML = '姓名不能为空';
+                items[3].style.color = 'red';
+            }else{
+                if(!reg.exec(userName.value)){
+                    items[3].innerHTML = '请输入正确的中文名字！';
+                    items[3].style.color = 'red';
+                    test4 = 'false';
+                }else{
+                    items[3].innerHTML = '名字输入正确！'
+                    items[3].style.color = 'green';
+                    test4 = 'true';
+                }
+            }
+        }
+
+
+
+// 验证身份证：
+        information.onfocus = function(){
+            items[4].innerHTML = '请输入身份证号';
+            items[4].style.color = 'green';
+        }
+        information.onblur = function(){ // 验证身份证号
+            var reg = /^\d{17}[0-9x]$/;
+            if(this.value == ''){
+                items[4].innerHTML = '身份证不能为空';
+                items[4].style.color = 'red';
+            }else{
+                if(!reg.exec(information.value)){
+                    items[4].innerHTML = '请输入正确的身份证号！';
+                    items[4].style.color = 'red';
+                    test5 = 'false';
+                }else{
+                    items[4].innerHTML = '身份证号输入正确！'
+                    items[4].style.color = 'green';
+                    test5 = 'true';
+                }
+            }
+        }
+
+
+
+// 验证邮箱：
+        email.onfocus = function(){
+            items[5].innerHTML = '请输入您的邮箱格式';
+            items[5].style.color = 'green';
+        }
+        email.onblur = function(){ // 验证邮箱
+            var reg = /^\w+@\w+\.[a-zA-Z_]{2,4}$/;
+            if(this.value == ''){
+                items[5].innerHTML = '邮箱输入不能为空';
+                items[5].style.color = 'red';
+            }else{
+                if(!reg.exec(email.value)){
+                    items[5].innerHTML = '邮箱格式不对！';
+                    items[5].style.color = 'red';
+                    test6 = 'false';
+                }else{
+                    items[5].innerHTML = '邮箱格式输入正确！'
+                    items[5].style.color = 'green';
+                    test6 = 'true';
+                }
+            }
+        }
+
+
+
+// 验证手机号：
+        telphone.onfocus = function(){
+            items[6].innerHTML = '请输入您的手机号！';
+            items[6].style.color = 'green';
+        }
+        telphone.onblur = function(){ // 验证手机号
+            var reg = /^\d{11}$/;
+            if(this.value == ''){
+                items[6].innerHTML = '手机号输入不能为空';
+                items[6].style.color = 'red';
+            }else{
+                if(!reg.exec(telphone.value)){
+                    items[6].innerHTML = '手机号格式不对！';
+                    items[6].style.color = 'red';
+                    test7 = 'false'; 
+                }else{
+                    items[6].innerHTML = '手机格式输入正确！'
+                    items[6].style.color = 'green';
+                    test7 = 'true';
+                }
+            }
+        }
+
+// 确认提交：只有前面每一项都正确的时候才能提交！
+        handup.onclick = function(){
+            // 注意：上面定义的test1-7均是字符串，所以判断的时候一定要在false外面加上引号，否则程序出错！！！
+            if(test1 == 'false' || test2 == 'false' || test3 == 'false' || test4 == 'false' || test5 == 'false' || test6 == 'false' || test7 == 'false'){
+                alert('对不起，您填写的信息有误，不能提交！');
+            }
+            else{
+                if(choose.checked){
+                    alert('提交中！');
+                }
+                else{
+                    alert('请勾选同意协议后再提交！');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
