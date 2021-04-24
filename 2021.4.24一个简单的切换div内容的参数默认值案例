@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap{
+            width: 324px;
+            margin: 0 auto;
+        }
+        button{
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 3px;
+            background-color: #f01414;
+            color: #fff;
+        }
+        #intro{
+            width: 300px;
+            min-height: 100px;
+            line-height: 20px;
+            padding: 10px;
+            border: 2px solid gray;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="warp">
+        <button>添加</button>
+        <div id="intro"></div>
+    </div>
+
+    <script>
+        let intro = document.getElementById("intro");
+        let btn = document.querySelector('button');
+// 定义一个函数：用于修改div里面的值
+        const informat = (   {
+                name='刘镇伟',
+                pro='周星驰/吴孟达/罗家英',
+                year='2014',
+                state='孙悟空（周星驰）护送唐三藏（罗家英）去西天取经路上，与牛魔王合谋欲杀害唐三藏，并偷走月光宝盒，此举使观音萌生将其铲除心思，经唐三藏请求，孙悟空背判五百年后重新投胎做人赎其罪孽...'
+            } = {}) => {
+                let html =  ``;
+                html = `<strong>名称：${name}</strong><br>导演：${pro}<br>主演：${year}<br>简洁：${state}`;
+                intro.innerHTML = html;
+            };
+// 调用该函数不传参的时候用默认值
+        informat();
+
+// 点击按钮时，传入参数，改变div里面的值！
+        btn.onclick = function() {
+            informat({
+                name:'功夫',
+                pro:'周星驰/黄圣衣',
+                year:'2004',
+                state:'20世纪40年代的中国广东，有一名无可救药的小混混阿星（周星驰饰），此人能言善道、擅耍嘴皮子，但意志不坚，一事无成。他一心渴望加入手段冷酷无情、恶名昭著的斧头帮，并梦想成为黑道响叮当的人物。此时斧头帮正顷全帮之力急于铲平为一为收入势力范围的地头。'
+            });
+        }
+
+    </script>
+</body>
+</html>
