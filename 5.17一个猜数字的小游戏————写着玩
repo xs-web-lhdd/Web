@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 随机产一个数字1到100之间：
+        var answer = parseInt(Math.random()*100);
+// 定义最大值，最小值，防止后面用户输入的数字出现逆化
+        var min = 1;
+        var max = 100;
+// 定义循环的条件，一旦oj为假就跳出循环
+        var oj=1;
+
+        while(oj){
+// 弹出提示框：
+            var n =prompt('请输入一个数字：'+ min + '~' + max);
+
+            if(n <= min || n >= max){
+                // 验证用户输入是否在循环内
+                alert('你输入的数字不在范围内');
+                continue;
+                // 如果输入的数字不在范围内，就结束本次循环的执行，重新输入
+            }
+// 游戏规则的体现：            
+            if(n > answer){
+                alert('你输入的数字太大了');
+                max = n;
+            }else if(n < answer){
+                alert('你输入的数字太小了');
+                min = n;
+            }else{
+                alert('你猜对了！');
+                // 猜对了就将obj改为0，退出循环
+                oj = 0;
+            }
+        }
+
+
+
+        
+    </script>
+</body>
+</html>
