@@ -1,0 +1,219 @@
+<!-- 
+    1、obj.fn && obj.fn();      && 运算符小技巧
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+  <section id="wrap">
+    <h2 class="title">百度音乐榜单</h2>
+    <ul id="list">
+      <!-- <li>
+          <input type="checkbox" />
+          <span>第一条信息</span>
+          <a href="javascript:;" class="collect">收藏</a>
+          <a href="javascript:;" class="cancelCollect">取消收藏</a>
+          <a href="javascript:;" class="remove">删除</a>
+        </li> -->
+    </ul>
+    <footer class="footer">
+      <label><input type="checkbox" id="checkAll" />全选/全不选</label>
+      <a href="javascript:;" id="remove">删除</a>
+      <input type="text" id="newInfo" />
+      <a href="javascript:;" id="add">添加</a>
+    </footer>
+  </section>
+  <script>
+    {
+      let data = [
+        {
+          id: 0,
+          title: "残酷月光 - 费启鸣",
+          checked: true,
+          collect: true
+        }, {
+          id: 1,
+          title: "兄弟 - 艾热",
+          checked: false,
+          collect: false
+        }, {
+          id: 2,
+          title: "毕生 - 夏增祥",
+          checked: false,
+          collect: true
+        }, {
+          id: 3,
+          title: "公子向北去 - 李春花",
+          checked: false,
+          collect: false
+        }, {
+          id: 4,
+          title: "战场 - 沙漠五子",
+          checked: true,
+          collect: false //是否收藏 true 收藏 false 没有收藏
+        }
+      ];
+
+        let checkedAll = document.querySelector('#checkAll');
+        // console.log(checkedAll);
+        let removeAll = document.querySelector('#remove');
+        // console.log(removeAll);
+        let newInfo = document.querySelector('#newInfo');
+        // console.log(newInfo);
+        let add = document.querySelector('#add');
+        // console.log(add);
+        
+        function render(data){
+            let str = ``;
+            data.forEach(element => {
+                str += `
+                <li>
+                    <input type="checkbox" ${element.checked?'checked':''}/>
+                    <span>${element.title}</span>
+                    ${element.collect ? '<a href="javascript:;" class="cancelCollect">取消收藏</a>' : '<a href="javascript:;" class="collect">收藏</a>'}     
+                    <a href="javascript:;" class="remove">删除</a>
+                    </li>`;
+                });
+                document.querySelector('#list').innerHTML = str;
+                // 在渲染的时候判断有没有全选
+                checkedAll.checked = isCheckedAll();
+                addEvent();
+            }
+            
+            var flag = 0;
+
+            let addEvent = () => {
+                let lis = document.querySelectorAll('li');
+            // console.log(lis);
+            lis.forEach((li,index) => {
+                // console.log(index);
+                // 找到每一个li里面的input
+                let checked = li.querySelector('input');
+                // 获取收藏节点
+                let collect = li.querySelector('.collect');
+                // 获取取消收藏节点
+                let cancelCollect = li.querySelector('.cancelCollect');
+                
+                let remove = li.querySelector('.remove');
+
+                
+                
+                checked.onchange = function(){
+                    // 改变输入框的布尔值————用来表示是否被选中
+                    // console.log(this.checked);
+                    data[index].checked = this.checked; // 通过改变输入框的checked改变
+                    // console.log(data);
+                    render(data);
+                }
+                // console.log(collect); // 没有就是null
+                // 这里不能直接collect.onclick 原因很简单，如果只写它会报错，一些有collect而有些没有，所以会报错
+                
+                // 为什么将collect放在第一位呢，因为是 && ，如果collect是null，那么这个语句就直接不会执行了，所以就不会执行&&后面的代码即不会进行绑定
+                collect && (collect.onclick = function (){
+                    // console.log(1111);
+                    data[index].collect = true;
+                    // 改变数据后进行渲染
+                    render(data);
+                })
+                
+                
+                cancelCollect && (cancelCollect.onclick = function (){
+                    // console.log(1111);
+                    // data[index].cancelCollect = 'true'; ---------这是一种错误的写法，因为在数据中没有cancelCollect，只有Collect
+                    data[index].collect = false;
+                    render(data);   
+                })
+                
+                remove.onclick = function (){
+                    // console.log(111);
+                    // console.log(index);
+                    // this.classList.remove();
+                    data.splice(index,1);
+                    render(data);
+                }
+                
+            // 全选----------点击后全部勾选
+// 1、第一种方法，原生JS的方法：
+                // var flag = 0;  
+                // 注意：flag不能定义在addEvent里面，原因是一旦放到addEvent里面就会在每次渲染的时候重新执行addEvent，那么该算法就没有任何意义了，永远都是true
+                // checkedAll.onclick = function (){
+                //     if(flag == 0){
+                //         // console.log('我要全选');
+                //         data.forEach(item => item.checked = 'true');
+                //         render(data);
+                //         flag = 1;
+                //     }else{
+                //         // console.log('取消全选');
+                //         data.forEach(item => item.checked = '');
+                //         render(data);
+                //         flag = 0;
+                //     }
+                // }
+// 第2种方法：通过this.checked实现
+                checkedAll.onchange = function (){
+                    // console.log(this.checked);
+                    // this 指向data 里的单选框
+                    // this.checked 就是指每个单选框的有没有被选中的状态，选中了就是true，没有就是false
+                    data.forEach(item => item.checked = this.checked);
+                    render(data);  
+                }
+// 删除所有的歌单：
+                removeAll.onclick = function (){
+                    // data.forEach(item => item);
+                    // 删除数组中的所有元素
+                    data.splice(0,data.length);
+                    render(data);
+                }
+// 添加歌单：
+                add.onclick = function(){
+                    // data = data.push(newInfo.value);
+                    console.log(newInfo.value);
+                    data.push({
+                        id: data.length,
+                        title: newInfo.value,
+                        checked: false,
+                        collect: true //是否收藏 true 收藏 false 没有收藏
+                    })
+                    if(newInfo.value == ''){
+                        alert('请输入歌曲名');
+                        data.splice(data.length-1,1);
+                        return;
+                    }
+                    newInfo.value = '';
+                    render(data);
+                }
+                
+                
+            })
+        }
+
+// 判断是否全选：
+        let isCheckedAll = () => {
+            let checkeds = data.filter(item => item.checked);
+            return checkeds.length === data.length;  // 判断全选，如果全选就是过滤出来的数组长度等于data的长度（代表全选）
+        }
+        
+
+
+        render(data)
+
+
+
+
+
+
+    }
+
+
+  </script>
+</body>
+
+</html>
