@@ -1,0 +1,269 @@
+<!-- 
+    1、sort函数排序
+    2、.ClassList.remove()
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>员工列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body a {
+            text-decoration: none;
+            color: #0d3a4b;
+        }
+
+        .active {
+            color: #ffffff;
+        }
+
+        .wrap {
+            width: 700px;
+            height: 500px;
+            background-image: url(./images/bg.png);
+            background-repeat: no-repeat;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .wrap #table {
+            width: 460px;
+            border-radius: 12px;
+            position: absolute;
+            left: 50%;
+            top: 160px;
+            transform: translateX(-50%);
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .wrap #table thead {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            color: #fff;
+            background: #4cbfe5;
+        }
+
+        .wrap #table thead a {
+            color: #fff;
+        }
+
+        .wrap #table tbody {
+            color: #19c2ff;
+        }
+
+        .wrap #table tbody a {
+            color: #19c2ff;
+        }
+
+        .wrap #table tbody tr {
+            background: #fff;
+        }
+
+        .ctrl {
+            position: absolute;
+            left: 200px;
+            top: 100px;
+        }
+
+        .ctrl div {
+            width: 300px;
+            line-height: 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="ctrl">
+            <div class="age_sort nu">
+                <a href="javascript:;">年龄从小到大</a>
+                <a href="javascript:;">年龄从大到小</a>
+                <a href="javascript:;" class="active">默认排序</a>
+            </div>
+            <div class="gender_show">
+                <a href="javascript:;">只显示男性</a>
+                <a href="javascript:;">只显示女性</a>
+                <a href="javascript:;" class="active">默认</a>
+            </div>
+        </div>
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                <th>0</th>
+                <th>小明</th>
+                <th>24</th>
+                <th>男</th>
+            </tr>      -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // 数据    对象数组；
+        let data = [
+            {
+                id: 0,
+                name: '小明',
+                age: 24,
+                gender: '男'
+            },
+            {
+                id: 1,
+                name: '小芳',
+                age: 30,
+                gender: '女'
+            },
+            {
+                id: 2,
+                name: '小美',
+                age: 31,
+                gender: '女'
+            },
+            {
+                id: 3,
+                name: '小刚',
+                age: 21,
+                gender: '男'
+            },
+            {
+                id: 4,
+                name: '小琪',
+                age: 18,
+                gender: '女'
+            }
+        ];
+        {
+            let ageEles = document.querySelectorAll('.age_sort a');
+            let gender = document.querySelectorAll('.gender_show a');
+            let sortIndex = 1;
+            let genderIndex = 1;
+
+
+
+
+// 渲染视图函数：
+            function render(data){
+                str = ``;
+                data.forEach((element,key) => {
+                    // console.log(element);
+                    // console.log(key);
+                    str += `<tr>
+                                <th>${element.id}</th>
+                                <th>${element.name}</th>
+                                <th>${element.age}</th>
+                                <th>${element.gender}</th>
+                            </tr>`
+                });
+                document.querySelector('#table tbody').innerHTML = str;
+            }
+            render(data);
+
+
+
+
+
+// 年龄排序数组：
+// sort会在原数组上进行改变
+        // 将方法函数写在数组中，然后通过调用数组元素进行执行相应函数————有一个好处，不用重复写方法，将方法写在一起这样就可以看着更规范一些，同时利用forEach的key方法便于调用
+            let ageSort = [
+                // 第一项由小到大
+                () => {
+                    data.sort((r1, r2) => r1.age - r2.age);
+                },
+                // 第二项年龄由大到小
+                () => {
+                    data.sort((r1, r2) => r2.age - r1.age);
+                },
+                // 第三项默认 就是id
+                () => {
+                    data.sort((r1,r2) => r1.id - r2.id);
+                }
+            ]
+// 筛选的性别：
+// filter会生成一个新数组
+            let filterType = [
+                // 筛选男：
+                () => {
+                    return data.filter(v => v.gender == '男');      
+                },
+                // 筛选女：
+                () => {
+                    return data.filter(v => v.gender == '女');      
+                },
+                // 默认：
+                () => {
+                    return [...data];     
+                },
+            ]
+
+
+
+
+// 第一行排序点击设置：
+            ageEles.forEach(function(item,key){
+                // console.log(item);
+                // console.log(key);
+                item.onclick = function(){
+            // 点击改变字体颜色，高亮
+                    ageEles.forEach(v => v.classList.remove('active'))
+                    this.classList.add('active');
+                    // this.style.color = 'white';
+                    ageSort[key]();
+                    // console.log(data);
+                    // data.sort((r1,r2) => r1.age - r2.age);
+                    // console.log(data);
+
+
+                    // let newData =  filterType[genderIndex]();
+                    // console.log(data);
+                    // console.log(newData);
+                    // render(newData);
+                    render(data);
+                    // sortIndex = key;
+                }
+            })
+// 型别筛选：
+            gender.forEach((item,key) => {
+                item.onclick = function(){
+            // 点击改变字体颜色，高亮
+                    gender.forEach(v => v.classList.remove('active'))
+                    this.classList.add('active');
+                    // this.style.color = 'white';
+                    let newData = filterType[key]();
+                    // console.log(data);
+                    // data.sort((r1,r2) => r1.age - r2.age);
+                    // console.log(data);
+                    render(newData);
+                }
+            })
+        }
+
+
+
+    </script>
+</body>
+
+</html>
