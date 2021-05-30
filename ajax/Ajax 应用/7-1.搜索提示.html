@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>搜索提示</title>
+  </head>
+  <body>
+    <input id="search" type="text" />
+    <ul id="result"></ul>
+
+    <script type="module">
+      import { getJSON } from './ajax/index.js';
+
+      const searchInput = document.getElementById('search');
+      const resultList = document.getElementById('result');
+
+      const url = 'https://www.imooc.com/api/http/search/suggest?words=';
+
+      const handleInputEvent = () => {
+        if (searchInput.value.trim() !== '') {
+          getJSON(`${url}${searchInput.value}`)
+            .then(response => {
+              console.log(response);
+              // [{word: "jsp"}]
+
+              let html = '';
+              for (const item of response.data) {
+                html += `<li>${item.word}</li>`;
+              }
+
+              resultList.innerHTML = html;
+
+              resultList.style.display = '';
+
+              // resultList.innerHTML = '<li>jsp</li><li>js</li>';
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        } else {
+          resultList.innerHTML = '';
+          resultList.style.display = 'none';
+        }
+      };
+
+      let timer = null;
+      // IE9 开始支持
+      searchInput.addEventListener(
+        'input',
+        () => {
+          // handleInputEvent();
+
+          if (timer) {
+            clearTimeout(timer);
+          }
+          // jsa
+          timer = setTimeout(handleInputEvent, 500);
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

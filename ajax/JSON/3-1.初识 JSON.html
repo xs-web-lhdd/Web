@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>初识 JSON</title>
+  </head>
+  <body>
+    <script>
+      // 1.JSON 是什么
+      // Ajax 发送和接收数据的一种格式
+      // XML
+      // username=alex&age=18
+      // JSON
+
+      const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+      const xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState != 4) return;
+
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+          console.log(xhr.responseText);
+        }
+      };
+
+      xhr.open('GET', url, true);
+
+      xhr.send(null);
+
+      // {"code":200,"data":[{"word":"jsp"},{"word":"js"},{"word":"json"},{"word":"js \u5165\u95e8"},{"word":"jstl"}]}
+      // HTML/XML
+
+      // JSON 全称是 JavaScript Object Notation
+
+      // 2.为什么需要 JSON
+      //  JSON 有 3 种形式，每种形式的写法都和 JS 中的数据类型很像，可以很轻松的和 JS 中的数据类型互相转换
+
+      // JS->JSON->PHP/Java
+      // PHP/Java->JSON->JS
+    </script>
+  </body>
+</html>

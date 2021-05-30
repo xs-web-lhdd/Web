@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>初识跨域</title>
+  </head>
+  <body>
+    <script>
+      // 1.跨域是什么
+
+      // 同域，不是跨域
+      // const url = './index.html';
+
+      // http://127.0.0.1:5500
+
+      // 不同域，跨域，被浏览器阻止
+      // const url = 'https://www.imooc.com';
+      // const xhr = new XMLHttpRequest();
+
+      // Access to XMLHttpRequest at 'https://www.imooc.com/' from origin 'http://127.0.0.1:5500' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource
+
+      // 向一个域发送请求，如果要请求的域和当前域是不同域，就叫跨域
+      // 不同域之间的请求，就是跨域请求
+
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState != 4) return;
+
+      //   if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //     console.log(xhr.responseText);
+      //   }
+      // };
+
+      // xhr.open('GET', url, true);
+
+      // xhr.send(null);
+
+      // 2.什么是不同域，什么是同域
+      // https（协议）://www.imooc.com（域名）:443（端口号）/course/list（路径）
+
+      // 协议、域名、端口号，任何一个不一样，就是不同域
+      // 与路径无关，路径一不一样无所谓
+
+      // 不同域
+      // https://www.imooc.com:443/course/list
+      // http://www.imooc.com:80/course/list
+
+      // http://www.imooc.com:80/course/list
+      // http://m.imooc.com:80/course/list
+      // http://imooc.com:80/course/list
+
+      // 同域
+      // http://imooc.com:80
+      // http://imooc.com:80/course/list
+
+      // 3.跨域请求为什么会被阻止
+      // 阻止跨域请求，其实是浏览器本身的一种安全策略--同源策略
+
+      // 其他客户端或者服务器都不存在跨域被阻止的问题
+
+      // 4.跨域解决方案
+      // ① CORS 跨域资源共享
+      // ② JSONP
+
+      // 优先使用 CORS 跨域资源共享，如果浏览器不支持 CORS 的话，再使用 JSONP
+    </script>
+  </body>
+</html>

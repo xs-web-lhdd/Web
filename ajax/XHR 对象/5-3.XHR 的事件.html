@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XHR 的事件</title>
+  </head>
+  <body>
+    <script>
+      // 1.load 事件
+      // 响应数据可用时触发
+      // const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+      // const xhr = new XMLHttpRequest();
+
+      // // xhr.onload = () => {
+      // //   if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      // //     console.log(xhr.response);
+      // //   }
+      // // };
+      // xhr.addEventListener(
+      //   'load',
+      //   () => {
+      //     if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //       console.log(xhr.response);
+      //     }
+      //   },
+      //   false
+      // );
+
+      // xhr.open('GET', url, true);
+
+      // xhr.send(null);
+
+      // IE6~8 不支持 load 事件
+
+      // 2.error 事件
+      // 请求发生错误时触发
+
+      // const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+      // const url = 'https://www.iimooc.com/api/http/search/suggest?words=js';
+      // const xhr = new XMLHttpRequest();
+
+      // xhr.addEventListener(
+      //   'load',
+      //   () => {
+      //     if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //       console.log(xhr.response);
+      //     }
+      //   },
+      //   false
+      // );
+      // xhr.addEventListener(
+      //   'error',
+      //   () => {
+      //     console.log('error');
+      //   },
+      //   false
+      // );
+
+      // xhr.open('GET', url, true);
+
+      // xhr.send(null);
+
+      // IE10 开始支持
+
+      // 3.abort 事件
+      // 调用 abort() 终止请求时触发
+      // const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+
+      // const xhr = new XMLHttpRequest();
+
+      // xhr.addEventListener(
+      //   'load',
+      //   () => {
+      //     if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //       console.log(xhr.response);
+      //     }
+      //   },
+      //   false
+      // );
+      // xhr.addEventListener(
+      //   'abort',
+      //   () => {
+      //     console.log('abort');
+      //   },
+      //   false
+      // );
+
+      // xhr.open('GET', url, true);
+
+      // xhr.send(null);
+
+      // xhr.abort();
+
+      // IE10 开始支持
+
+      // 4.timeout 事件
+      // 请求超时后触发
+      const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+
+      const xhr = new XMLHttpRequest();
+
+      xhr.addEventListener(
+        'load',
+        () => {
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+            console.log(xhr.response);
+          }
+        },
+        false
+      );
+      xhr.addEventListener(
+        'timeout',
+        () => {
+          console.log('timeout');
+        },
+        false
+      );
+
+      xhr.open('GET', url, true);
+
+      xhr.timeout = 10;
+
+      xhr.send(null);
+
+      // IE8 开始支持
+    </script>
+  </body>
+</html>

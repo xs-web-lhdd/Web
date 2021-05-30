@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>FormData</title>
+  </head>
+  <body>
+    <form
+      id="login"
+      action="https://www.imooc.com/api/http/search/suggest?words=js"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <input type="text" name="username" placeholder="用户名" />
+      <input type="password" name="password" placeholder="密码" />
+      <input id="submit" type="submit" value="登录" />
+    </form>
+
+    <script>
+      // 1.使用 Ajax 提交表单
+
+      // 2.FormData 的基本用法
+      // 通过 HTML 表单元素创建 FormData 对象
+      // const fd = new FormData(表单元素);
+      // xhr.send(fd);
+
+      // 通过 append() 方法添加数据
+      // const fd = new FormData(表单元素);
+      // fd.append('age', 18);
+      // fd.append('sex', 'male');
+      // xhr.send(fd);
+
+      // IE10 及以上可以支持
+
+      const login = document.getElementById('login');
+      // console.log(login.username);
+      // console.log(login.password);
+      const { username, password } = login;
+      const btn = document.getElementById('submit');
+      const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+
+      btn.addEventListener(
+        'click',
+        e => {
+          // 阻止表单自动提交
+          e.preventDefault();
+
+          // 表单数据验证
+
+          // 发送 Ajax 请求
+          const xhr = new XMLHttpRequest();
+
+          xhr.addEventListener(
+            'load',
+            () => {
+              if (
+                (xhr.status >= 200 && xhr.status < 300) ||
+                xhr.status === 304
+              ) {
+                console.log(xhr.response);
+              }
+            },
+            false
+          );
+
+          xhr.open('POST', url, true);
+
+          // 组装数据
+          // const data = `username=${username.value}&password=${password.value}`;
+
+          // FormData 可用于发送表单数据
+          const data = new FormData(login);
+          // data.append('age', 18);
+          // data.append('sex', 'male');
+          // console.log(data);
+          // for (const item of data) {
+          //   console.log(item);
+          // }
+
+          // xhr.setRequestHeader(
+          //   'Content-Type',
+          //   'application/x-www-form-urlencoded'
+          // );
+
+          xhr.send(data);
+
+          // xhr.send('username=alex&password=12345');
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

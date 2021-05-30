@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CORS 跨域资源共享</title>
+  </head>
+  <body>
+    <script>
+      // 1.CORS 是什么
+      // const url = 'https://www.imooc.com';
+
+      // const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+      // const xhr = new XMLHttpRequest();
+
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState != 4) return;
+
+      //   if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //     console.log(xhr.responseText);
+      //   }
+      // };
+
+      // xhr.open('GET', url, true);
+
+      // xhr.send(null);
+
+      // Access-Control-Allow-Origin: *
+      // 表明允许所有的域名来跨域请求它，* 是通配符，没有任何限制
+
+      // 只允许指定域名的跨域请求
+      // Access-Control-Allow-Origin: http://127.0.0.1:5500
+
+      // 2.使用 CORS 跨域的过程
+      // ① 浏览器发送请求
+      // ② 后端在响应头中添加 Access-Control-Allow-Origin 头信息
+      // ③ 浏览器接收到响应
+      // ④ 如果是同域下的请求，浏览器不会额外做什么，这次前后端通信就圆满完成了
+      // ⑤ 如果是跨域请求，浏览器会从响应头中查找是否允许跨域访问
+      // ⑥ 如果允许跨域，通信圆满完成
+      // ⑦ 如果没找到或不包含想要跨域的域名，就丢弃响应结果
+
+      // 3.CORS 的兼容性
+      // IE10 及以上版本的浏览器可以正常使用 CORS
+
+      // https://caniuse.com/
+
+      // JSONP
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSONP</title>
+  </head>
+  <body>
+    <script>
+      // 1.JSONP 的原理
+      // script 标签跨域不会被浏览器阻止
+      // JSONP 主要就是利用 script 标签，加载跨域文件
+
+      // 2.使用 JSONP 实现跨域
+      // 服务器端准备好 JSONP 接口
+      // https://www.imooc.com/api/http/jsonp?callback=handleResponse
+
+      // 手动加载 JSONP 接口或动态加载 JSONP 接口
+      const script = document.createElement('script');
+      script.src =
+        'https://www.imooc.com/api/http/jsonp?callback=handleResponse';
+      document.body.appendChild(script);
+
+      // 声明函数
+      const handleResponse = data => {
+        console.log(data);
+      };
+
+      // handleResponse({
+      //   code: 200,
+      //   data: [
+      //     {
+      //       word: 'jsp'
+      //     },
+      //     {
+      //       word: 'js'
+      //     },
+      //     {
+      //       word: 'json'
+      //     },
+      //     {
+      //       word: 'js 入门'
+      //     },
+      //     {
+      //       word: 'jstl'
+      //     }
+      //   ]
+      // });
+
+      // 优先使用 CORS，如果浏览器不支持 CORS 的话，再使用 JSONP
+    </script>
+    <!-- <script src="https://www.imooc.com/api/http/jsonp?callback=handleResponse"></script> -->
+    <!-- 相当于 -->
+    <!-- <script>
+      handleResponse({
+        code: 200,
+        data: [
+          {
+            word: 'jsp'
+          },
+          {
+            word: 'js'
+          },
+          {
+            word: 'json'
+          },
+          {
+            word: 'js 入门'
+          },
+          {
+            word: 'jstl'
+          }
+        ]
+      });
+    </script> -->
+  </body>
+</html>

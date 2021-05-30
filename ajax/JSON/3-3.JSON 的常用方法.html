@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSON 的常用方法</title>
+  </head>
+  <body>
+    <script type="module">
+      // 1.JSON.parse()
+      // JSON.parse() 可以将 JSON 格式的字符串解析成 JS 中的对应值
+      // 一定要是合法的 JSON 字符串，否则会报错
+      // const xhr = new XMLHttpRequest();
+
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState != 4) return;
+
+      //   if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //     console.log(xhr.responseText);
+      //     console.log(typeof xhr.responseText);
+
+      //     console.log(JSON.parse(xhr.responseText));
+      //     // console.log(JSON.parse(xhr.responseText).data);
+      //   }
+      // };
+
+      // // xhr.open('GET', './plain.json', true);
+      // // xhr.open('GET', './obj.json', true);
+      // xhr.open('GET', './arr.json', true);
+
+      // // xhr.open(
+      // //   'GET',
+      // //   'https://www.imooc.com/api/http/search/suggest?words=js',
+      // //   true
+      // // );
+
+      // xhr.send(null);
+
+      // 2.JSON.stringify()
+      // JSON.stringify() 可以将 JS 的基本数据类型、对象或者数组转换成 JSON 格式的字符串
+      // console.log(
+      //   JSON.stringify({
+      //     username: 'alex',
+      //     age: 18
+      //   })
+      // );
+
+      // const xhr = new XMLHttpRequest();
+
+      // xhr.open(
+      //   'POST',
+      //   'https://www.imooc.com/api/http/search/suggest?words=js',
+      //   true
+      // );
+      // xhr.send(
+      //   JSON.stringify({
+      //     username: 'alex',
+      //     age: 18
+      //   })
+      // );
+
+      // 3.使用 JSON.parse() 和 JSON.stringify() 封装 localStorage
+      import { get, set, remove, clear } from './storage.js';
+
+      set('username', 'alex');
+      console.log(get('username'));
+
+      set('zs', {
+        name: '张三',
+        age: 18
+      });
+      console.log(get('zs'));
+
+      remove('username');
+      clear();
+    </script>
+  </body>
+</html>

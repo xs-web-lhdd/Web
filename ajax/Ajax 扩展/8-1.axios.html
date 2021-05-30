@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>axios</title>
+  </head>
+  <body>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="https://unpkg.com/axios@0.19.2/dist/axios.min.js"></script>
+
+    <script>
+      // 1.axios 是什么
+      // axios 是一个基于 Promise 的 HTTP 库，可以用在浏览器和 node.js 中
+      // 第三方 Ajax 库
+
+      // http://www.axios-js.com/zh-cn/docs/
+
+      // 2.axios 的基本用法
+      // 引入 axios
+      // console.log(axios);
+
+      const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+      // axios(url, {
+      //   method: 'post',
+
+      //   // 请求时的头信息
+      //   headers: {
+      //     'Content-Type': 'application/x-www-form-urlencoded'
+      //     // 'Content-Type': 'application/json'
+      //   },
+
+      //   // 通过请求头携带的数据
+      //   params: {
+      //     username: 'alex'
+      //   },
+
+      //   // 通过请求体携带的数据
+
+      //   // application/json
+      //   // data: {
+      //   //   age: 18,
+      //   //   sex: 'male'
+      //   // }
+
+      //   // application/x-www-form-urlencoded
+      //   data: 'age=18&sex=male'
+
+      //   // timeout: 10
+
+      //   // withCredentials: true
+      // })
+      //   .then(response => {
+      //     console.log(response);
+      //     console.log(response.data.data);
+      //   })
+      //   .catch(err => {
+      //     console.log(err);
+      //   });
+
+      // axios
+      //   .get(url, {
+      //     params: {
+      //       username: 'alex'
+      //     }
+      //   })
+      //   .then(response => {
+      //     console.log(response);
+      //   });
+
+      // axios
+      //   .post(url, 'username=alex&age=18')
+      //   .then(response => {
+      //     console.log(response);
+      //   })
+      //   .catch(err => {
+      //     console.log(err);
+      //   });
+
+      axios
+        .post('https://www.imooc.com/api/http/json/search/suggest?words=js', {
+          username: 'alex'
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
+      // axios.put()
+      // axios.delete()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ajax 的基本用法</title>
+  </head>
+  <body>
+    <script>
+      // 1.XMLHttpRequest
+      // console.log(Ajax);
+
+      // Ajax 想要实现浏览器与服务器之间的异步通信，需要依靠 XMLHttpRequest，它是一个构造函数
+
+      // 不论是 XMLHttpRequest，还是 Ajax，都没有和具体的某种数据格式绑定
+
+      // 2.Ajax 的使用步骤
+      // 2.1.创建 xhr 对象
+      // const xhr = new XMLHttpRequest();
+
+      // 2.2.监听事件，处理响应
+      // 当获取到响应后，会触发 xhr 对象的 readystatechange 事件，可以在该事件中对响应进行处理
+
+      // xhr.addEventListener('readystatechange', () => {}, fasle);
+
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState !== 4) return;
+
+      //   // HTTP CODE
+      //   // 获取到响应后，响应的内容会自动填充 xhr 对象的属性
+      //   // xhr.status：HTTP  200 404
+      //   // xhr.statusText：HTTP 状态说明 OK Not Found
+      //   if ((xhr.status >= 200) & (xhr.status < 300) || xhr.status === 304) {
+      //     // console.log('正常使用响应数据');
+      //     console.log(xhr.responseText);
+      //   }
+      // };
+
+      // readystatechange 事件也可以配合 addEventListener 使用，不过要注意，IE6~8 不支持 addEventListener
+      // 为了兼容性，readystatechange 中不使用 this，而是直接使用 xhr
+      // 由于兼容性的原因，最好放在 open 之前
+
+      // readystatechange 事件监听 readyState 这个状态的变化
+      // 它的值从 0 ~ 4，一共 5 个状态
+      // 0：未初始化。尚未调用 open()
+      // 1：启动。已经调用 open()，但尚未调用 send()
+      // 2：发送。已经调用 send()，但尚未接收到响应
+      // 3：接收。已经接收到部分响应数据
+      // 4：完成。已经接收到全部响应数据，而且已经可以在浏览器中使用了
+
+      // 2.3.准备发送请求
+      // xhr.open(
+      //   'HTTP 方法 GET、POST、PUT、DELETE',
+      //   '地址 URL https://www.imooc.com/api/http/search/suggest?words=js ./index.html ./index.xml ./index.txt',
+      //   true
+      // );
+
+      // 调用 open 并不会真正发送请求，而只是做好发送请求前的准备工作
+
+      // 2.3.发送请求
+      // 调用 send() 正式发送请求
+
+      // send() 的参数是通过请求体携带的数据
+      // xhr.send(null);
+
+      // 3.使用 Ajax 完成前后端通信
+      const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+
+      // const xhr = new XMLHttpRequest();
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState !== 4) return;
+
+      //   if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //     console.log(xhr.responseText);
+      //     console.log(typeof xhr.responseText);
+      //   }
+      // };
+      // xhr.open('GET', url, true);
+      // xhr.send(null);
+
+
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = () => {
+        if(xhr.readyState != 4) return ;
+        if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+          console.log(xhr.responseText);
+        }
+      }
+      xhr.open('GET',url,true);
+      xhr.send(null);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XHR 的属性</title>
+  </head>
+  <body>
+    <script>
+      // 1.responseType 和 response 属性
+      // const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+      // const xhr = new XMLHttpRequest();
+
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState != 4) return;
+
+      //   if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //     // 文本形式的响应内容
+      //     // responseText 只能在没有设置 responseType 或者 responseType = '' 或 'text' 的时候才能使用
+      //     // console.log('responseText:', xhr.responseText);
+
+      //     // 可以用来替代 responseText
+      //     console.log('response:', xhr.response);
+      //     // console.log(JSON.parse(xhr.responseText));
+      //   }
+      // };
+      // xhr.open('GET', url, true);
+
+      // // xhr.responseType = '';
+      // // xhr.responseType = 'text';
+      // xhr.responseType = 'json';
+
+      // xhr.send(null);
+
+      // IE6~9 不支持，IE10 开始支持
+
+      // 2.timeout 属性
+      // 设置请求的超时时间（单位 ms）
+      // const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+      // const xhr = new XMLHttpRequest();
+
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState != 4) return;
+
+      //   if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //     console.log(xhr.response);
+      //   }
+      // };
+
+      // xhr.open('GET', url, true);
+
+      // xhr.timeout = 10000;
+
+      // xhr.send(null);
+
+      // IE6~7 不支持，IE8 开始支持
+
+      // 3.withCredentials 属性
+      // 指定使用 Ajax 发送请求时是否携带 Cookie
+
+      // 使用 Ajax 发送请求，默认情况下，同域时，会携带 Cookie；跨域时，不会
+      // xhr.withCredentials = true;
+      // 最终能否成功跨域携带 Cookie，还要看服务器同不同意
+
+      // const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+      // // const url = './index.html';
+
+      // const xhr = new XMLHttpRequest();
+
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState != 4) return;
+
+      //   if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //     console.log(xhr.response);
+      //   }
+      // };
+
+      // xhr.open('GET', url, true);
+
+      // xhr.withCredentials = true;
+
+      // xhr.send(null);
+
+      // IE6~9 不支持，IE10 开始支持
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GET 请求</title>
+  </head>
+  <body>
+    <!-- <form action="https://www.imooc.com/api/http/search/suggest" method="get">
+      <input type="text" name="username" />
+      <input type="text" name="words" />
+      <input type="password" name="password" />
+      <input type="submit" value="提交" />
+    </form> -->
+
+    <script>
+      // 1.携带数据
+      // GET 请求不能通过请求体携带数据，但可以通过请求头携带
+      // const url =
+      //   'https://www.imooc.com/api/http/search/suggest?words=js&username=alex&age=18';
+      // const xhr = new XMLHttpRequest();
+
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState != 4) return;
+
+      //   if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //     console.log(xhr.responseText);
+      //   }
+      // };
+
+      // xhr.open('GET', url, true);
+
+      // xhr.send(null);
+
+      // 不会报错，但不会发送数据
+      // xhr.send('sex=male');
+
+      // 2.数据编码
+      // 如果携带的数据是非英文字母的话，比如说汉字，就需要编码之后再发送给后端，不然会造成乱码问题
+      // 可以使用 encodeURIComponent() 编码
+      const url = `https://www.imooc.com/api/http/search/suggest?words=${encodeURIComponent(
+        '前端'
+      )}`;
+      const xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState != 4) return;
+
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+          console.log(xhr.responseText);
+        }
+      };
+
+      xhr.open('GET', url, true);
+
+      xhr.send(null);
+    </script>
+  </body>
+</html>
