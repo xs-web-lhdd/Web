@@ -1,0 +1,751 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+/* body{
+    min-height: 100px;
+    height: 100%;
+} */
+/* 头部 */
+header{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(255, 227, 0);
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+header .nav{
+    width: 1000px;
+    height: 60px;
+    /* background-color: pink; */
+    float: right;
+}
+header .nav .left{
+    float: left;
+    width: 600px;
+    /* background-color: orange; */
+}
+header .nav .left li a{
+    display: block;
+    width: 80px;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    margin: 0 2.8px;
+    font-size: 14px;
+    /* position: relative; */
+}
+
+header .nav .left li a:hover{
+    background-color: black;
+    color: white;
+}
+
+header .nav .left .con-one{
+    position: relative;
+}
+/*  */
+header .nav .left .con-one div{
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 2.8px;
+    width: 100px;
+    height: 160px;
+    /* background-color: pink; */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    /* border-top-left-radius: 2px;
+    border-bottom-right-radius: 2px; */
+}
+header .nav .left .con-one:hover div{
+    display: block;
+}
+header .nav .left .con-one div dl dd a{
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    color: black;
+    /* margin: 10px auto; */
+    line-height: 30px;
+    text-align: left;
+    font-size: 12px;
+    padding: 5px 0px;
+    padding-left: 10px;
+    margin-left: -2px;
+}
+
+/* ############################# */
+/* 给下拉菜单添加经过颜色 */
+header .nav .left .con-one div dl dd a:hover{
+    background-color: rgb(255, 227, 0);
+    color: #444;
+}
+header .nav .left .con-two div dl dd a:hover{
+    background-color: rgb(255, 227, 0);
+    color: #444;
+}
+header .nav .left .con-three div dl dd a:hover{
+    background-color: rgb(255, 227, 0);
+    color: #444;
+}
+header .nav .left .con-four div dl dd a:hover{
+    background-color: rgb(255, 227, 0);
+    color: #444;
+}
+header .nav .left .con-fif div dl dd a:hover{
+    background-color: rgb(255, 227, 0);
+    color: #444;
+}
+header .nav .left .con-six div dl dd a:hover{
+    background-color: rgb(255, 227, 0);
+    color: #444;
+}
+header .nav .left .con-seven div dl dd a:hover{
+    background-color: rgb(255, 227, 0);
+    color: #444;
+}
+/* ############################# */
+
+header .nav .left .con-two{
+    position: relative;
+}
+/*  */
+header .nav .left .con-two div{
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 90.8px;
+    width: 100px;
+    /* height: 160px; */
+    /* background-color: pink; */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    /* border-top-left-radius: 2px;
+    border-bottom-right-radius: 2px; */
+}
+header .nav .left .con-two:hover div{
+    display: block;
+}
+header .nav .left .con-two div dl dd a{
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    color: black;
+    /* margin: 10px auto; */
+    line-height: 30px;
+    text-align: left;
+    font-size: 12px;
+    padding: 5px 0px;
+    padding-left: 10px;
+    margin-left: -2px;
+}
+
+
+
+
+header .nav .left .con-three{
+    position: relative;
+}
+/*  */
+header .nav .left .con-three div{
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 175.8px;
+    width: 100px;
+    /* height: 160px; */
+    /* background-color: pink; */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    /* border-top-left-radius: 2px;
+    border-bottom-right-radius: 2px; */
+}
+header .nav .left .con-three:hover div{
+    display: block;
+}
+header .nav .left .con-three div dl dd a{
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    color: black;
+    /* margin: 10px auto; */
+    line-height: 30px;
+    text-align: left;
+    font-size: 12px;
+    padding: 5px 0px;
+    padding-left: 10px;
+    margin-left: -2px;
+}
+
+
+header .nav .left .con-four{
+    position: relative;
+}
+/*  */
+header .nav .left .con-four div{
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 260.8px;
+    width: 100px;
+    /* height: 160px; */
+    /* background-color: pink; */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    /* border-top-left-radius: 2px;
+    border-bottom-right-radius: 2px; */
+}
+header .nav .left .con-four:hover div{
+    display: block;
+}
+header .nav .left .con-four div dl dd a{
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    color: black;
+    /* margin: 10px auto; */
+    line-height: 30px;
+    text-align: left;
+    font-size: 12px;
+    padding: 5px 0px;
+    padding-left: 10px;
+    margin-left: -2px;
+}
+
+
+header .nav .left .con-fif{
+    position: relative;
+}
+/*  */
+header .nav .left .con-fif div{
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 345.8px;
+    width: 100px;
+    /* height: 160px; */
+    /* background-color: pink; */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    /* border-top-left-radius: 2px;
+    border-bottom-right-radius: 2px; */
+}
+header .nav .left .con-fif:hover div{
+    display: block;
+}
+header .nav .left .con-fif div dl dd a{
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    color: black;
+    /* margin: 10px auto; */
+    line-height: 30px;
+    text-align: left;
+    font-size: 12px;
+    padding: 5px 0px;
+    padding-left: 10px;
+    margin-left: -2px;
+}
+
+
+header .nav .left .con-six{
+    position: relative;
+}
+/*  */
+header .nav .left .con-six div{
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 430.8px;
+    width: 100px;
+    /* height: 160px; */
+    /* background-color: pink; */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    /* border-top-left-radius: 2px;
+    border-bottom-right-radius: 2px; */
+}
+header .nav .left .con-six:hover div{
+    display: block;
+}
+header .nav .left .con-six div dl dd a{
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    color: black;
+    /* margin: 10px auto; */
+    line-height: 30px;
+    text-align: left;
+    font-size: 12px;
+    padding: 5px 0px;
+    padding-left: 10px;
+    margin-left: -2px;
+}
+
+header .nav .left .con-seven{
+    position: relative;
+}
+/*  */
+header .nav .left .con-seven div{
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 515.8px;
+    width: 100px;
+    /* height: 160px; */
+    /* background-color: pink; */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    /* border-top-left-radius: 2px;
+    border-bottom-right-radius: 2px; */
+}
+header .nav .left .con-seven:hover div{
+    display: block;
+}
+header .nav .left .con-seven div dl dd a{
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    color: black;
+    /* margin: 10px auto; */
+    line-height: 30px;
+    text-align: left;
+    font-size: 12px;
+    padding: 5px 0px;
+    padding-left: 10px;
+    margin-left: -2px;
+}
+
+
+/* ####################################### */
+
+
+header .nav .right{
+    float: left;
+    width: 400px;
+}
+header .nav .right li a{
+    display: block;
+    width: 60px;
+    height: 60px;
+    float: left;
+    line-height: 60px;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+header .nav .right li .login:hover{
+    background-color: black;
+    color: white;
+    /* font-size: 15px; */
+    font-weight: 600;
+}
+header .nav .right li .join:hover{
+    background-color: black;
+    color: white;
+    /* font-size: 15px; */
+    font-weight: 600;
+}
+
+header .nav .right li .font{
+    font-size: 30px;
+    margin-top: -10px;
+}
+header .nav .right li a img{
+    margin: 15px 25px;
+    width: 30px;
+    height: 30px;
+}
+
+.banner{
+    width: 1130px;
+    height: 286px;
+    background-color: pink;
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 4px;
+}
+.banner img{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+.bgc{
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 1130px;
+    height: 168px;
+    /* background-color: black; */
+}
+.bgc div{
+    float: left;
+    width: 300px;
+    height: 168px;
+    /* background-color: #fff; */
+    margin: 0 38px;
+}
+.bgc div img{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+.center{
+    width: 400px;
+    height: 56px;
+    margin: 0 auto;
+    margin-top: 60px;
+    /* background-color: pink; */
+}
+.center div{
+    width: 125px;
+    float: left;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    /* border-bottom: black; */
+}
+.center div a{
+    font-size: 16px;
+    color: #999;
+    padding-bottom: 5px;
+}
+/* 添加鼠标经过变小手效果 */
+.center div a:hover{
+    cursor: pointer;
+}
+.center .firstclick{
+    border-bottom: 2px solid #282828;
+    color: black;
+}
+.container{
+    background-color: rgb(244,244,244);
+    width: 100%;
+    height: 1364px;
+    padding-bottom: 50px;
+}
+.container .main-one{
+    margin: 0 auto;
+    width: 1130px;
+    height: 318px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container .main-one div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+    /* overflow: hidden; */
+}
+/* 加悬浮效果 */
+.container .main-one div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+.container .main-two div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+.container .main-three div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+.container .main-four div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+
+.container .main-one  div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+    /* overflow: hidden; */
+}
+/* .container .main-one div:hover .photo{
+    transform: scale(1.1);
+} */
+.container .main-one div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container .main-one div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container .main-one div .two{
+    width: 180px;
+    height: 23px;
+}
+.container .main-one div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container .main-one div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container .main-one div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+.container .main-two{
+    padding-top: 14px;
+    margin: 0 auto;
+    width: 1130px;
+    height: 332px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container .main-two div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.container .main-two div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+}
+.container .main-two div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container .main-two div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container .main-two div .two{
+    width: 180px;
+    height: 23px;
+}
+.container .main-two div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container .main-two div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container .main-two div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+
+
+.container .main-three{
+    padding-top: 14px;
+    margin: 0 auto;
+    width: 1130px;
+    height: 332px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container .main-three div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.container .main-three div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+}
+.container .main-three div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container .main-three div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container .main-three div .two{
+    width: 180px;
+    height: 23px;
+}
+.container .main-three div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container .main-three div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container .main-three div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+
+
+
+.container .main-four{
+    padding-top: 14px;
+    margin: 0 auto;
+    width: 1130px;
+    height: 332px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container .main-four div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.container .main-four div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+}
+.container .main-four div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container .main-four div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container .main-four div .two{
+    width: 180px;
+    height: 23px;
+}
+.container .main-four div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container .main-four div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container .main-four div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    /* margin-top: 50px; */
+    width: 100%;
+    height: 200px;
+    background-color: #282828;
+}
+footer .message{
+    margin: 0 auto;
+    width: 1130px;
+    height: 120px;
+    /* background-color: red; */
+    border-bottom: 1px #444 solid;
+}
+footer .message nav li{
+    width: 100px;
+    height: 120px;
+    float: left;
+    line-height: 120px;
+    text-align: center;
+}
+footer .message nav li a{
+    color: #666;
+    font-size: 14px;
+}
+footer .message div{
+    float: right;
+    width: 100px;
+    height: 120px;
+}
+footer .message div img{
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+    margin-top: 48px;
+    cursor: pointer;
+}
+
+
+footer .message img .bbb:hover{
+    background: url(./icon_pvbr7x5k5wg/weixin.svg);
+}
+
+
+footer div{
+    margin: 0 auto;
+    width: 1130px;
+}
+footer div span{
+    display: block;
+    /* width: 20px; */
+    margin-top: 30px;
+    margin-left: 100px;
+    font-size: 12px;
+    color: #666;
+}
+footer div span a{
+    font-size: 12px;
+    color: #666;
+}

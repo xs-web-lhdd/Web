@@ -1,0 +1,576 @@
+.main{
+    position: relative;
+    background-color: rgb(244,244,244);
+    width: 100%;
+    height: 1364px;
+    padding-bottom: 50px;
+}
+.container{
+    /* display: none; */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+/* 第三个页面 */
+.container-addthree{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(244,244,244);
+    width: 100%;
+    height: 1364px;
+    padding-bottom: 50px;
+}
+
+.container-addthree .main-one{
+    /* margin: 0 auto; */
+    margin: 0 auto;
+    width: 1130px;
+    height: 318px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container-addthree .main-one div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+    /* overflow: hidden; */
+}
+/* 加悬浮效果 */
+.container-addthree .main-one div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+.container-addthree .main-two div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+.container-addthree .main-three div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+.container-addthree .main-four div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+
+.container-addthree .main-one  div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+    /* overflow: hidden; */
+}
+/* .container .main-one div:hover .photo{
+    transform: scale(1.1);
+} */
+.container-addthree .main-one div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container-addthree .main-one div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container-addthree .main-one div .two{
+    width: 180px;
+    height: 23px;
+}
+.container-addthree .main-one div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container-addthree .main-one div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container-addthree .main-one div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+.container-addthree .main-two{
+    padding-top: 14px;
+    margin: 0 auto;
+    width: 1130px;
+    height: 332px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container-addthree .main-two div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.container-addthree .main-two div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+}
+.container-addthree .main-two div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container-addthree .main-two div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container-addthree .main-two div .two{
+    width: 180px;
+    height: 23px;
+}
+.container-addthree .main-two div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container-addthree .main-two div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container-addthree .main-two div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+
+
+.container-addthree .main-three{
+    padding-top: 14px;
+    margin: 0 auto;
+    width: 1130px;
+    height: 332px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container-addthree .main-three div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.container-addthree .main-three div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+}
+.container-addthree .main-three div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container-addthree .main-three div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container-addthree .main-three div .two{
+    width: 180px;
+    height: 23px;
+}
+.container-addthree .main-three div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container-addthree .main-three div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container-addthree .main-three div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+
+
+
+.container-addthree .main-four{
+    padding-top: 14px;
+    margin: 0 auto;
+    width: 1130px;
+    height: 332px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container-addthree .main-four div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.container-addthree .main-four div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+}
+.container-addthree .main-four div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container-addthree .main-four div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container-addthree .main-four div .two{
+    width: 180px;
+    height: 23px;
+}
+.container-addthree div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container-addthree .main-four div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container-addthree .main-four div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 第二个页面 */
+
+.container-addtwo{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(244,244,244);
+    width: 100%;
+    height: 1364px;
+    padding-bottom: 50px;
+}
+
+.container-addtwo .main-one{
+    /* margin: 0 auto; */
+    margin: 0 auto;
+    width: 1130px;
+    height: 318px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container-addtwo .main-one div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+    /* overflow: hidden; */
+}
+/* 加悬浮效果 */
+.container-addtwo .main-one div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+.container-addtwo .main-two div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+.container-addtwo .main-three div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+.container-addtwo .main-four div:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.12);
+}
+
+.container-addtwo .main-one  div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+    /* overflow: hidden; */
+}
+/* .container .main-one div:hover .photo{
+    transform: scale(1.1);
+} */
+.container-addtwo .main-one div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container-addtwo .main-one div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container-addtwo .main-one div .two{
+    width: 180px;
+    height: 23px;
+}
+.container-addtwo .main-one div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container-addtwo .main-one div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container-addtwo .main-one div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+.container-addtwo .main-two{
+    padding-top: 14px;
+    margin: 0 auto;
+    width: 1130px;
+    height: 332px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container-addtwo .main-two div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.container-addtwo .main-two div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+}
+.container-addtwo .main-two div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container-addtwo .main-two div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container-addtwo .main-two div .two{
+    width: 180px;
+    height: 23px;
+}
+.container-addtwo .main-two div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container-addtwo .main-two div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container-addtwo .main-two div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+
+
+.container-addtwo .main-three{
+    padding-top: 14px;
+    margin: 0 auto;
+    width: 1130px;
+    height: 332px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container-addtwo .main-three div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.container-addtwo .main-three div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+}
+.container-addtwo .main-three div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container-addtwo .main-three div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container-addtwo .main-three div .two{
+    width: 180px;
+    height: 23px;
+}
+.container-addtwo .main-three div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container-addtwo .main-three div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container-addtwo .main-three div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
+
+
+
+
+.container-addtwo .main-four{
+    padding-top: 14px;
+    margin: 0 auto;
+    width: 1130px;
+    height: 332px;
+    /* background-color: black; */
+    /* background: rgb(244,244,244); */
+    
+}
+.container-addtwo .main-four div{
+    width: 200px;
+    height: 317px;
+    margin: 0 13px;
+    float: left;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.container-addtwo .main-four div .photo{
+    width: 200px;
+    height: 200px;
+    border-radius: 3px;
+}
+.container-addtwo .main-four div .pic{
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 160px;
+    height: 25px;
+}
+.container-addtwo .main-four div .aa{
+    width: 180px;
+    height: 28px;
+}
+.container-addtwo .main-four div .two{
+    width: 180px;
+    height: 23px;
+}
+.container-addtwo div .wenzi-one{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.container-addtwo .main-four div .wenzi-one a{
+    /* color: #BBBBBB; */
+    font-size: 14px;
+}
+.container-addtwo .main-four div .wenzi-two{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: #BBBBBB;
+    font-size: 12px;
+}
