@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS下雨特效</title>
+<style>
+    body{
+        width: 100%;
+        height: 100%;
+        background: url(./你的名字.png)  no-repeat; 
+        background-size: cover;  /*有图片选图片，或者16进制的颜色代码*/
+    }   
+</style>
+     
+</head>
+ 
+<body>
+     
+    <script>
+
+
+        var viewAreaHeight = window.screen.availHeight; // 获取可视屏幕高度
+        // console.log(viewAreaHeight);
+        var viewAreaWidth = window.screen.availWidth; // 获取可视屏幕宽度
+        // console.log(viewAreaWidth);
+         
+        setInterval(function()
+        {
+            //创建rain元素
+            var rain=document.createElement("div");
+            rain.className = 'rain';            
+
+            //初始化rain属性
+            rain.style.position="fixed";
+            rain.style.height="80px";
+            rain.style.width="2px";
+            rain.style.background="url(./雨滴.png)";       //有图片赋值图片路径，或者赋值16进制的颜色代码
+            rain.style.filter="blur(1px)";
+            rain.style.top="0px";
+            // rain.style.left=Math.random()*1920+"px";                  //随机化位置
+            rain.style.left=Math.random()*4*viewAreaWidth+"px"; 
+            rain.style.opacity=parseInt(Math.random()*10)/10+"";        //随机化透明度
+ 
+            //向body里添加子节点rain
+            document.body.appendChild(rain);
+            var timer=setInterval(function()
+            {
+                var height=parseInt(rain.style.top);
+                var k=1;
+                k++;
+ 
+                // rain.style.top=height+5*Math.pow(k,2)+"px";             //模拟重力加速度
+                rain.style.top=height+5*Math.pow(k,2)+"px"; 
+ 
+                //当雨滴到达底部后消失并清除子节点rain
+                // if(rain.style.top>="900px")
+                if(rain.style.top>=viewAreaHeight)
+                {
+                    clearInterval(timer);
+                    rain.parentNode.removeChild(rain);
+                }
+            },10)                        //每隔4毫秒雨滴下落一次
+        },20)                            //每隔8毫秒生成一次雨滴
+     
+    
+        var arr = document.getElementsByClassName('rain');
+        
+         
+    </script>
+     
+</body>
+</html>
